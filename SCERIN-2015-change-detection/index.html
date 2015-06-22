@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>SCERIN 2015, Brasov</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="../css/reveal.css">
+        <link rel="stylesheet" href="../css/theme/night.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="../lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = '../css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="../lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+    <div class="reveal">
+    <div class="slides">
+
+
+    <section> 
+    <!-- Add image background to that first slide -->
+    <h2>Forest change monitoring using remote-sensing time-series</h2>
+    <p><i>Loïc Dutrieux, 2015-07-15</i></p>
+    <p><i>Scerin-3 Workshop, Brasov</i></p>
+
+    </section>
+
+    <section>
+        <h2>Why monitoring forests?</h2>
+        <ul>
+            <li>Carbon</li>
+            <li>Biodiversity</li>
+            <li>etc</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Remote Sensing time-series</h2>
+        <ul>
+            <li>AVHRR</li>
+            <li>MODIS</li>
+            <li>Landsat</li>
+            <li>Sentinel?</li>
+        </ul>
+    </section>
+
+    <section>
+        <section>
+        <!-- Add references to these slides -->
+            <h2>Bfast framework for change detection</h2>
+            <p><i>Overview</i></p>
+            <ul>
+                <li>Statistically based framework for modelling vegetation time-series and detecting change/anomalies</li>
+                <ul>
+                    <li>Structural change detection</li>
+                    <li>Detects change in time-series regression models</li>
+                    <li>Originates from the econometrics litterature</li>
+                </ul>
+                <li>2 main modules</li>
+                <ul>
+                    <li>Near real time change detection</li>
+                    <li>Time-series segmentation</li>
+                </ul>
+                <li>Available as an R package</li>
+                    <ul>
+                        <li>bfast</li>
+                        <li>bfastSpatial</li>
+                    </ul>
+            </ul>
+        </section>
+        <section>
+            <h2>Near real time change detection</h2>
+            <p><i>Bfastmonitor</i></p>
+            <p>TODO: Add a GIF here or something</p>
+            <p>TODO: add iframe with bfmApp?</p>
+        </section>
+        <section>
+            <h2>Changes in land (use) regimes</h2>
+            <p><i>Bfast/breakpoints</i></p>
+            <p>TODO: Add here the figure of stl decomposition (original bfast, applicable to MODIS, AVHRR, etc), and a simple segmented profile of Landsat</p>
+
+        </section>
+        
+    </section>
+
+    <section>
+        <h2>Some examples of applications</h2>
+        <ul>
+            <li>Forest tracking in Ethiopia</li>
+            <li>Peru?</li>
+            <li>Bolivia</li>
+            <li>Land use intensity in Brazil</li>
+            <li>Anything else?</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Thanks!</h2>
+        <p>
+        <a href="http://loicdutrieux.com/talks/SCERIN-2015-change-detection">http://loicdutrieux.com/talks/SCERIN-2015-change-detection</a>
+        </p>
+        <p>
+        <a href="mailto:loic.dutrieux@wur.nl"><i class="fa fa-envelope fa-4x"></i></a>
+        <a href="http://github.com/dutri001"><i class="fa fa-github fa-4x"></i></a>
+        <a href="http://nl.linkedin.com/in/loicdutrieux"><i class="fa fa-linkedin fa-4x"></i></a>
+        </p>
+    </section>
+
+
+
+    </div>
+
+    </div>
+
+    <!-- Scripts below -->
+
+        <script src="../lib/js/head.min.js"></script>
+        <script src="../js/reveal.js"></script>
+
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                theme: Reveal.getQueryHash().theme || 'night', // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: '../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+        </script>
+
+    </body>
+</html>
