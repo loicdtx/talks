@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>SCERIN 2015, Brasov</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="../css/reveal.css">
+        <link rel="stylesheet" href="../css/theme/night.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="../lib/css/zenburn.css">
+        <link href="../css/font-awesome.css" rel="stylesheet">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = '../css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="../lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+    <div class="reveal">
+    <div class="slides">
+
+
+    <section>
+        <h2>bfastSpatial</h2>
+        <h3>Loïc Dutrieux, Ben DeVries</h3>
+        <p><i>You've just downloaded landsat data; you're 4 lines of code away from a change map</i></p>
+    </section>
+
+    <section id="fragments">
+        <h2>Why we built bfastSpatial</h2>
+        <ul>
+            <li class="fragment">Automate things that we do routinely</li>
+            <li class="fragment">Streamline pre-processing and analysis</li>
+            <li class="fragment">Enhance collaboration</li>
+            <li class="fragment">Because it's fun!!!</li>
+        </ul>
+    </section>
+
+
+    <section>
+        <h2>Thanks!</h2>
+        <p>
+        <a href="http://loicdutrieux.com/talks/SCERIN-2015-bfastSpatial">http://loicdutrieux.com/talks/SCERIN-2015-bfastSpatial</a>
+        </p>
+        <p>
+        <a href="mailto:loic.dutrieux@wur.nl"><i class="fa fa-envelope fa-2x"></i></a>
+        <a href="http://github.com/dutri001"><i class="fa fa-github fa-2x"></i></a>
+        <a href="http://nl.linkedin.com/in/loicdutrieux"><i class="fa fa-linkedin fa-2x"></i></a>
+        </p>
+    </section>
+
+
+
+    </div>
+
+    </div>
+
+    <!-- Scripts below -->
+
+        <script src="../lib/js/head.min.js"></script>
+        <script src="../js/reveal.js"></script>
+
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                theme: Reveal.getQueryHash().theme || 'night', // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: '../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+        </script>
+
+    </body>
+</html>
