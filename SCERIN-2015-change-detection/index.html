@@ -39,8 +39,7 @@
     <div class="slides">
 
 
-    <section> 
-    <!-- Add image background to that first slide -->
+    <section data-background="img/landsat.jpg" data-background-size="50%"> 
     <h2>Forest change monitoring using remote-sensing time-series</h2>
     <p><i>Loïc Dutrieux, 2015-07-15</i></p>
     <p><i>Scerin-3 Workshop, Brasov</i></p>
@@ -48,62 +47,68 @@
     </section>
 
     <section>
-        <h2>Why monitoring forests?</h2>
-        <ul>
-            <li>Carbon</li>
-            <li>Biodiversity</li>
-            <li>etc</li>
-        </ul>
+        <section>
+            <h2>Why monitoring forests?</h2>
+        </section>
+
+        <section data-background="img/biodiversity.jpg" data-background-size="50%">
+            <p><i>"Catchy sentence about how much biodiversity forests are hosting (and carbon)"</i></p>
+        </section>
+
+        <section>
+            <p>Maybe another slide here about deforestation</p>
+        </section>
     </section>
 
     <section>
-        <h2>Remote Sensing time-series</h2>
+        <h2>Challenges in remote sensing forest change tracking</h2>
         <ul>
-            <li>AVHRR</li>
-            <li>MODIS</li>
-            <li>Landsat</li>
-            <li>Sentinel?</li>
+            <li>Detecting change in time-series is not that straightforward</li>
+            <li>Scale and intensity of disturbances vary</li>
+            <li>Natural Vs. anthropogenic changes</li>
+            <li>Cloud cover and data availability</li>
         </ul>
     </section>
 
     <section>
         <section>
-        <!-- Add references to these slides -->
-            <h2>Bfast framework for change detection</h2>
-            <p><i>Overview</i></p>
+            <h2>How do we detect change in time-series?</h2>
+            <h3>BFAST framework for change detection</h3>
             <ul>
-                <li>Statistically based framework for modelling vegetation time-series and detecting change/anomalies</li>
+                <li><i>Verbesselt et al. 2010a,b, 2012</i></li>
+                <li>Models vegetation annual behaviours</li>
+                <li>2 modules</li>
                 <ul>
-                    <li>Structural change detection</li>
-                    <li>Detects change in time-series regression models</li>
-                    <li>Originates from the econometrics litterature</li>
+                    <li>Near real-time change detection (<i>bfastmonitor</i>)</li>
+                    <li>Full time-series segmentation (<i>bfast</i>)</li>
                 </ul>
-                <li>2 main modules</li>
-                <ul>
-                    <li>Near real time change detection</li>
-                    <li>Time-series segmentation</li>
-                </ul>
-                <li>Available as an R package</li>
-                    <ul>
-                        <li>bfast</li>
-                        <li>bfastSpatial</li>
-                    </ul>
             </ul>
         </section>
-        <section>
-            <h2>Near real time change detection</h2>
-            <p><i>Bfastmonitor</i></p>
-            <p>TODO: Add a GIF here or something</p>
-            <p>TODO: add iframe with bfmApp?</p>
-        </section>
-        <section>
-            <h2>Changes in land (use) regimes</h2>
-            <p><i>Bfast/breakpoints</i></p>
-            <p>TODO: Add here the figure of stl decomposition (original bfast, applicable to MODIS, AVHRR, etc), and a simple segmented profile of Landsat</p>
 
+        <section>
+            <h2><i>bfastmonitor</i></h2>
+            <ul>
+                <li>Near real-time change detection</li>
+                <li>Detect deviation from a stable regime</li>
+                <li>Add gif</li>
+            </ul>
         </section>
-        
+
+        <section>
+            <h2><i>bfast</i></h2>
+            <ul>
+                <li>Iteratively decomposes time-series into trend, seasonality and remainder</li>
+                <li>Segments time-series into segments and breakpoints (abrupt and gradual change)</li>
+
+            </ul>
+        </section>
+
+        <section data-background="img/r.png" data-background-size="50%">
+            <h2 style="color:yellow">Available as an R package</h2>
+            <a href="http://bfast.r-forge.r-project.org/">bfast package</a>
+        </section>
     </section>
+
 
     <section>
         <h2>Some examples of applications</h2>
