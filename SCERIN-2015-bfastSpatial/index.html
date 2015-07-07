@@ -39,7 +39,7 @@
     <div class="slides">
 
 
-    <section>
+    <section data-background="../SCERIN-2015-change-detection/img/landsat.jpg" data-background-size="50%">
         <h2>bfastSpatial</h2>
         <h3>Loïc Dutrieux, Ben DeVries</h3>
         <p><i>You've just downloaded landsat data; you're 4 lines of code away from a change map</i></p>
@@ -48,33 +48,261 @@
     <section id="fragments">
         <h2>Why we built bfastSpatial</h2>
         <ul>
-            <li class="fragment">Automate things that we do routinely</li>
+            <li class="fragment">Automate things that we were doing routinely</li>
             <li class="fragment">Streamline pre-processing and analysis</li>
-            <li class="fragment">Enhance collaboration</li>
             <li class="fragment">Because it's fun!!!</li>
         </ul>
+
+        <p class="fragment"><i>Overall it makes dealing with Landsat data for change detection more efficient and more accessible</i></p>
     </section>
 
     <section>
-        <h2>Installation</h2>
-        <p>You need:</p>
-        <ul>
-            <li>(A recent version of) R</li>
-            <li><tt>devtools</tt> package</li>
-        </ul>
-        <pre>
-            <code data-trim class="r">
+        <section>
+            <h2>Classical data pre-processing and analysis chain</h2>
+            <ul>
+                <li>Download the data</li>
+                <li><i>Atmospheric correction and orthorectification</i></li>
+                <li>Cloud masking</li>
+                <li>Calculation of vegetation indices</li>
+                <li>Prepare time-series</li>
+                <li>Run algorythm</li>
+            </ul>
+            <p><i>With bfastSptial we've tried to streamline this process</i></p>
+        </section>
+
+        <section>
+            <h2></h2>
+            <img src="img/bfastSpatial_flowChart.png" width="80%">
+        </section>
+    </section>
+
+
+    <section>
+
+        <section>
+            <h2>Enough theory, let's try it!!!</h2>
+        </section>
+
+        <section>
+            <h2>Installation</h2>
+            <p>You need:</p>
+            <ul>
+                <li>(A recent version of) R</li>
+                <li>The <tt>devtools</tt> package</li>
+            </ul>
+            <pre>
+                <code data-trim class="r">
 # install devtools package
 install.packages('devtools')
-            </code>
-        </pre>
-        <p>Then we can install the package using the <tt>devtools</tt> package</p>
-        <pre>
-            <code data-trim class="r">
+                </code>
+            </pre>
+            <p>Then we can install the package using the <tt>devtools</tt> package</p>
+            <pre>
+                <code data-trim class="r">
 # install bfastSpatial from github
 devtools::install_github('dutri001/bfastSpatial')
+                </code>
+            </pre>
+            
+        </section>
+
+        <section>
+            <h2>Prepare the session</h2>
+            <p>Create a directory where to store input and output on your computer</p>
+            <pre>
+                <code data-trim class="r">
+# Set path of the project (these directories must exist)
+path <- '/home/dutri001/sandbox/changeHungary'
+inDir <- file.path(path, 'in')
+
+# Download the archive with the data (~100MB)
+download.file('https://googledrive.com/host/0B6NK5CdpGEa7ajFuQ1dBZHUwMW8',
+              destfile = file.path(path, 'hungaryData.tar.gz'), method = 'wget')
+
+# Unpack the data
+untar(file.path(path, 'hungaryData.tar.gz'), exdir = inDir)
+                </code>
+            </pre>
+
+        </section>
+
+        <section>
+        <h2>About the data</h2>
+        <ul>
+            <li>These are Surface reflectance Landsat data downloaded via <a href="http://espa.cr.usgs.gov/">espa</a></li>
+            <li>The full time-series (2000-2015) of a 5x5 km extent was downloaded</li>
+            <li>The product already contains vegetation indices (NDVI, NDMI, etc), processed by the USGS</li>
+            <li>For a tutorial on how to order data from USGS and download them, refer to the main <a href="http://www.loicdutrieux.com/bfastSpatial/#Downloading_Landsat_data_from_Earth_Explorer_espa">bfastSpatial tutorial</a></li>            
+        </ul>
+        </section>
+
+
+        <section>
+            <h3>At the border between Romania and Hungary</h3>
+            <img src="img/map.png" width="80%">
+        </section>
+
+    </section>
+
+    <section>
+        <section>
+            <h2>Pre-processing</h2>
+            <p>A typical data processing/analysis project has three directories (in, step, out), which we'll need to create</p>
+            <pre>
+                <code data-trim class="r">
+library(bfastSpatial)
+
+# tmp dir is for storing 'invisible' temporary files
+# We can use the tmp directory of the raster package
+tmpDir <- rasterOptions()$tmpdir
+
+# StepDir is where we store intermediary outputs
+stepDir <- file.path(path, 'step')
+
+# ndviDir is a subdirectory of stepDir
+# it is where individual NDVI layers will be stored before being stacked
+ndviDir <- file.path(stepDir, 'ndvi')
+
+# Ouput directory
+outDir <- '/home/dutri001/Desktop/HungaryData/out/'
+                </code>
+            </pre>
+            </section>
+
+            <section>
+                <p>These directories need to already exist before we start pre-processing the data; you can do that manually or by running the following loop</p>
+                <pre>
+                    <code data-trim class="r">
+for (i in c(stepDir, ndviDir, outDir)) {
+  dir.create(i, showWarnings = FALSE)
+}
+                    </code>
+                </pre>
+                
+        </section>
+
+        <section>
+        <h2>One last checks</h2>
+        <pre>
+            <code data-trim class="r">
+# Check that we have the right data in the inDir folder
+head(getSceneinfo(list.files(inDir)))
             </code>
         </pre>
+        
+        <p>Output of getSceneinfo</p>
+
+        <pre>
+            <code data-trim class="nohighlight">
+LC81850272015108    OLI  185  27 2015-04-18
+LC81850272015124    OLI  185  27 2015-05-04
+LC81860272013125    OLI  186  27 2013-05-05
+LC81860272013141    OLI  186  27 2013-05-21
+LC81860272013157    OLI  186  27 2013-06-06
+LC81860272013173    OLI  186  27 2013-06-22
+            </code>
+        </pre>
+        </section>
+
+        <section>
+            <h2>Everything setup, we can start</h2>
+            <p>processLandsatBatch runs processLandsat in batch mode</p>
+            <pre>
+                <code data-trim class="r">
+# Process NDVI for all scenes of inDir (takes 3-5 minutes on my tiny Lenovo)
+processLandsatBatch(x = inDir, outdir = ndviDir, srdir = tmpDir,
+                    delete = TRUE, mask = 'fmask', vi = 'ndvi')
+                </code>
+            </pre>
+            <p>Let's check the output</p>
+            <pre>
+                <code data-trim class="r">
+head(list.files(ndviDir))
+                </code>
+            </pre>
+
+            <pre><code data-trim class="nohighlight">
+[1] "ndvi.LC81850272015108.grd" "ndvi.LC81850272015108.gri" "ndvi.LC81850272015124.grd"
+[4] "ndvi.LC81850272015124.gri" "ndvi.LC81860272013125.grd" "ndvi.LC81860272013125.gri"
+            </code></pre>
+
+        </section>
+
+        <section>
+            <h2>Then we need to create the NDVI rasterBrick</h2>
+            <pre>
+                <code data-trim class="r">
+# Make temporal ndvi stack
+ndviStack <- timeStack(x = ndviDir, pattern = '^.*\\.grd$',
+                       filename = file.path(stepDir, 'ndvi_stack.grd'),
+                       datatype = 'INT2S')
+
+# Look at object metadata
+ndviStack
+                </code>
+            </pre>
+
+            <pre>
+                <code data-trim class="nohighlight">
+class       : RasterBrick 
+dimensions  : 176, 177, 31152, 397  (nrow, ncol, ncell, nlayers)
+resolution  : 30, 30  (x, y)
+extent      : 569805.5, 575115.5, 5275605, 5280885  (xmin, xmax, ymin, ymax)
+coord. ref. : +proj=utm +zone=34 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
+data source : /home/dutri001/Desktop/HungaryData/step/ndvi_stack.grd 
+names       : LE71850272000123, LE71850272000155, LE71850272000235, ... 
+time        : 2000-02-03, 2015-06-12 (min, max)
+                </code>
+            </pre>
+        </section>
+    </section>
+
+    <section>
+        <section>
+            <h2>Run the algorythm</h2>
+
+            <p>Produce a change map between 2010 (start=) and 2013 (monend=)</p>
+            <pre>
+                <code data-trip class="r">
+# Run bfastmonitor (that part takes a long time)
+bfm <- bfmSpatial(x = ndviStack, pptype = 'irregular', start = 2010,
+                  formula = response ~ trend + harmon, order = 3,
+                  mc.cores = 3, filename = file.path(outDir, 'bfm_2010.grd'),
+                  monend = 2013)
+                </code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>What's the output like?</h2>
+            <pre>
+                <code data-trim class="nohighlight">
+> bfm
+
+class       : RasterBrick 
+dimensions  : 176, 177, 31152, 3  (nrow, ncol, ncell, nlayers)
+resolution  : 30, 30  (x, y)
+extent      : 569805.5, 575115.5, 5275605, 5280885  (xmin, xmax, ymin, ymax)
+coord. ref. : +proj=utm +zone=34 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
+data source : /home/dutri001/Desktop/HungaryData/out/bfm_2010.grd 
+names       :   layer.1,   layer.2,   layer.3 
+min values  :  2010.427, -4599.156,        NA 
+max values  :  2012.879,  6252.375,        NA 
+                </code>
+            </pre>
+
+            <p>From the help page (?bfmSpatial)</p>
+            <p><i>By default, 3 layers are returned: (1) breakpoint: timing of breakpoints detected for each pixel; (2) magnitude: the median of the residuals within the monitoring period; (3) error: a value of 1 for pixels where an error was encountered by the algorithm (see try), and NA where the method was successfully run</i></p>
+
+        </section>
+        <section data-background='img/changeMap.png' data-background-size="50%">
+        <pre>
+            <code data-trim class="r">
+plot(ndviStack[[204]], col = grey.colors(255), legend = F)
+plot(bfm[[1]], add=TRUE)
+            </code>
+        </pre>
+        </section>
     </section>
 
 
