@@ -117,8 +117,9 @@ path <- '/home/dutri001/sandbox/changeHungary'
 inDir <- file.path(path, 'in')
 
 # Download the archive with the data (~100MB)
-download.file('https://googledrive.com/host/0B6NK5CdpGEa7ajFuQ1dBZHUwMW8',
-              destfile = file.path(path, 'hungaryData.tar.gz'), method = 'wget')
+download.file('http://www.geo-informatie.nl/dutri001/hungaryData.tar.gz',
+              destfile = file.path(path, 'hungaryData.tar.gz'))
+# Alternative download: https://googledrive.com/host/0B6NK5CdpGEa7ajFuQ1dBZHUwMW8
 
 # Unpack the data
 untar(file.path(path, 'hungaryData.tar.gz'), exdir = inDir)
