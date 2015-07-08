@@ -113,7 +113,7 @@ devtools::install_github('dutri001/bfastSpatial')
             <pre>
                 <code data-trim class="r">
 # Set path of the project (these directories must exist)
-path <- '/home/dutri001/sandbox/changeHungary'
+path <- '~/sandbox/changeHungary'
 inDir <- file.path(path, 'in')
 
 # Download the archive with the data (~100MB)
@@ -166,7 +166,7 @@ stepDir <- file.path(path, 'step')
 ndviDir <- file.path(stepDir, 'ndvi')
 
 # Ouput directory
-outDir <- '/home/dutri001/Desktop/HungaryData/out/'
+outDir <- file.path(path, 'out')
                 </code>
             </pre>
             </section>
@@ -376,8 +376,7 @@ runGitHub('dutri001/bfmApp')
         <h2>breakpoints app</h2>
             <pre>
                 <code data-trim class="r">
-library(shiny)
-runGitHub('dutri001/bfmApp')
+runGitHub('dutri001/bfastApp')
                 </code>
             </pre>
 
@@ -397,7 +396,15 @@ runGitHub('dutri001/bfmApp')
 
     <section>
         <h2>Conclusion</h2>
+        <ul>
+            <li>Early steps of the pre-processing are very standard and can be automated</li>
+            <li>It's easy to produce a change map</li>
+            <li>But a good change map requires local tuning</li>
+            <li>Spend some time looking at individual pixels</li>
+            <li>Keep your projects well structured</li>
+        </ul>
     </section>
+
 
 
     <section>
