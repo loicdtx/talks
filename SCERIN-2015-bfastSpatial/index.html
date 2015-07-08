@@ -309,11 +309,77 @@ plot(bfm[[1]], add=TRUE)
         <section>
             <h2>Utilities: Investigate individual pixel time-series</h2>
             <ul>
-                <li>bfmPixel()</li>
-                <li>zooExtract()</li>
-                <li>bfmApp</li>
-                <li>...</li>
+                <li>bfmPixel() <i>(run bfastmonitor on individual pixels)</i></li>
+                <li><a href="https://github.com/dutri001/bfmApp">bfmApp</a> <i>(investigate bfastmonitor parameters interactively)</i></li>
+                <li><a href="https://github.com/dutri001/bfastApp">breakpoints app</a> <i>(Interactive detection of multiple breakpoints)</i></li>
             </ul>
+        </section>
+
+        <section>
+            <h2>bfmPixel() example</h2>
+            <pre>
+                <code data-trim class="r">
+# Plot a cloud free recent NDVI layer
+plot(ndviStack, 394)
+
+# Call bfmPixel in interactive mode
+bfmPixel(x = ndviStack, start = 2010, monend = 2013, interactive = TRUE, plot = TRUE)
+
+# Click on a pixel
+                </code>
+            </pre>
+        </section>
+
+        <section>
+            <h2>bfmApp and breakpoints app</h2>
+            <p>These <a href="http://shiny.rstudio.com/">shiny applications</a> allow to investigate single time-series interactively</p>
+
+            <p>They require an rds file as input, which can be easily created using the zooExtract() function:</p>
+
+            <pre>
+                <code data-trim class="r">
+# Sample regular points over the extent of the data
+sp <- sampleRegular(ndviStack, size = 100, sp = TRUE)
+# Extract the time-series corresponding to the locations of the sample points
+# and store the multiple time-series object in the stepDir of the project
+zooTs <- zooExtract(x = ndviStack, sample = sp,
+                    file = file.path(stepDir, 'zooTs.rds'))
+                </code>
+            </pre>
+            <p>There is also a set of dependencies required to run the apps</p>
+            <pre>
+                <code data-trim class="r">
+install.packages('shiny', 'zoo', 'bfast', 'strucchange', 'ggplot2',
+                 'lubridate', 'dplyr')
+                </code>
+            </pre>
+        </section>
+
+        <section>
+        <h2>bfmApp</h2>
+
+        <pre>
+            <code data-trim class="r">
+library(shiny)
+runGitHub('dutri001/bfmApp')
+            </code>
+        </pre>
+
+        <img src="img/bfmApp.png" width="70%">
+        <p><i>But sometimes dynamics are more complex</i></p>
+            
+        </section>
+
+        <section>
+        <h2>breakpoints app</h2>
+            <pre>
+                <code data-trim class="r">
+library(shiny)
+runGitHub('dutri001/bfmApp')
+                </code>
+            </pre>
+
+            <img src="img/bfastApp.png" width="70%">
         </section>
     </section>
 
@@ -325,6 +391,10 @@ plot(bfm[[1]], add=TRUE)
             <li>Wageningen <a href="http://www.wageningenur.nl/en/Expertise-Services/Chair-groups/Environmental-Sciences/Laboratory-of-Geoinformation-Science-and-Remote-Sensing/Research/Integrated-land-monitoring/Change_detection_and_monitoring.htm">change monitor web page</a></li>
             <li>Mail us (Ben and I) <a href="mailto:loic.dutrieux@gmail.com"><i class="fa fa-envelope fa-2x"></i></a> <a href="mailto:benjamin.devries@wur.nl"><i class="fa fa-envelope fa-2x"></i></a></li>
         </ul>
+    </section>
+
+    <section>
+        <h2>Conclusion</h2>
     </section>
 
 
