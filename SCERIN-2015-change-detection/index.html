@@ -94,6 +94,7 @@
                 <li>Near real-time change detection</li>
                 <li>Detect deviation from a stable regime</li>
                 <li>Add gif</li>
+                <!-- Even better would be to add a gif with a mosum value crossing the boundary -->
             </ul>
         </section>
 
@@ -102,8 +103,15 @@
             <ul>
                 <li>Iteratively decomposes time-series into trend, seasonality and remainder</li>
                 <li>Segments time-series into segments and breakpoints (abrupt and gradual change)</li>
-
             </ul>
+
+            <img src="img/bfast0.jpg" width="70%">
+
+        </section>
+
+        <section>
+            <h2><i>bfast example<br>Shifts in land use regimes</i></h2>
+            <img src="img/bfast1.jpg" width="80%">
         </section>
 
         <section data-background="img/r.png" data-background-size="50%">
@@ -113,21 +121,60 @@
     </section>
 
     <section>
-        
-        <h2>Change monitor website</h2>
-    </section>
+        <section>
+            <h2>Examples of applications</h2>
+            <p><a href="http://www.wageningenur.nl/en/Expertise-Services/Chair-groups/Environmental-Sciences/Laboratory-of-Geoinformation-Science-and-Remote-Sensing/Research/Integrated-land-monitoring/Change_detection_and_monitoring.htm">Change detection and monitoring</a> research research task</p>
+        </section>
 
+        <section data-background="img/ethiopia0.jpg" data-background-size="70%">
+        <h2 style="color:black">Monitoring small-scale forest disturbances</h2>
+        </section>
+        <section>
+            <h2>Monitoring small-scale forest disturbances</h2>
+            <ul>
+                <li>Use bfastmonitor with Landsat time-series</li>
+                <li>Combine significant change with change magnitude to detect small-scale disturbances</li>
+            </ul>
+            <br><br><br>
+            <p style="font-size:80%">DeVries, B., Verbesselt, J., Kooistra, L., & Herold, M. (2015). Robust monitoring of small-scale forest disturbances in a tropical montane forest using Landsat time series. Remote Sensing of Environment</p>
+        </section>
+        <section data-background="img/bolivia0.jpg" data-background-size="70%">
+            <h2 style="color:black">Monitoring forest cover loss using multiple data streams</h2>
+        </section>
+
+        <section>
+            <h3>Monitoring forest cover loss using multiple data streams</h3>
+
+            <ul style="font-size:80%">
+                <li>Uses MODIS NDVI as external regressor in the change detection process</li>
+                <li>Takes advantage of the scale difference between natural and anthropogenic disturbances</li>
+            </ul>
+            <img src="img/bolivia1.jpg" width="50%">
+
+            <p style="font-size:80%">Dutrieux, L. P., Verbesselt, J., Kooistra, L., & Herold, M. (2015). Monitoring forest cover loss using multiple data streams, a case study of a tropical dry forest in Bolivia. ISPRS Journal of Photogrammetry and Remote Sensing.</p>
+        </section>
+
+        <section data-background="img/fiji0.jpg" data-background-size="50%">
+            <h2 style="color:black">SAR-optical fusion for deforestation detection in the tropics</h2>
+            
+        </section>
+        <section>
+            <h2>SAR-optical fusion for deforestation detection in the tropics</h2>
+
+            <p style="font-size:80%">Reiche, J., Verbesselt, J., Hoekman, D., & Herold, M. (2015). Fusing Landsat and SAR time series to detect deforestation in the tropics. Remote Sensing of Environment</p>
+            
+        </section>
+    </section>
 
     <section>
-        <h2>Some examples of applications</h2>
+        <h2>Tools</h2>
         <ul>
-            <li>Forest tracking in Ethiopia</li>
-            <li>Peru?</li>
-            <li>Bolivia</li>
-            <li>Land use intensity in Brazil</li>
-            <li>Anything else?</li>
+            <li><a href="http://bfast.r-forge.r-project.org/">bfast R package</a></li>
+            <li><a href="https://github.com/dutri001/bfastSpatial">bfastSpatial R package</a> (training <a href="http://www.loicdutrieux.com/talks/SCERIN-2015-bfastSpatial">session</a> on Friday)</li>
+            <li><a href="https://github.com/bendv/timeSyncR">timeSyncR</a> R package</li>
         </ul>
     </section>
+
 
     <section>
         <h2>Thanks!</h2>
