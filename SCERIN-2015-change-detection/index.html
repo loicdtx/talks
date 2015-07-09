@@ -43,7 +43,7 @@
     <h2>Forest change monitoring using remote-sensing time-series</h2>
     <p><i>Loïc Dutrieux, 2015-07-15</i></p>
     <p><i>Scerin-3 Workshop, Brasov</i></p>
-    <p>Ben DeVries, Johannes Reiche, Jan Verbesselt, Martin Herold, Brice Mora</p>
+    <p>Ben DeVries, Johannes Reiche, Jan Verbesselt, Lammert Kooistra, Martin Herold, Brice Mora</p>
     <p>Laboratory of Geo-Information Science and Remote Sensing<br>Wageningen University, The Netherlands</p>
 
     </section>
@@ -63,13 +63,13 @@
         </section>
     </section>
 
-    <section>
+    <section id="fragments">
         <h2>Challenges in remote sensing forest change tracking</h2>
         <ul>
             <li>Detecting change in time-series is not that straightforward</li>
             <li>Scale and intensity of disturbances vary</li>
-            <li>Natural Vs. anthropogenic changes</li>
-            <li>Cloud cover and data availability</li>
+            <li>Anthropogenic changes can be confused with natural variablility</li>
+            <li>Cloud cover reduces data availability... <i class="fragment">sometimes a lot!!!</i></li>
         </ul>
     </section>
 
@@ -94,8 +94,10 @@
                 <li>Near real-time change detection</li>
                 <li>Detect deviation from a stable regime</li>
                 <img src="img/bfm.gif">
-                <!-- Even better would be to add a gif with a mosum value crossing the boundary -->
+
+
             </ul>
+                <p style="font-size:80%">Verbesselt, J., Zeileis, A., & Herold, M. (2012). Near real-time disturbance detection using satellite image time series. Remote Sensing of Environment</p>
         </section>
 
         <section>
@@ -107,11 +109,14 @@
 
             <img src="img/bfast0.jpg" width="70%">
 
+
         </section>
 
         <section>
             <h2><i>bfast example<br>Shifts in land use regimes</i></h2>
-            <img src="img/bfast1.jpg" width="80%">
+            <img src="img/bfast1.jpg" width="60%">
+
+            <p style="font-size:80%">Verbesselt, J., Hyndman, R., Newnham, G., & Culvenor, D. (2010). Detecting trend and seasonal changes in satellite image time series. Remote sensing of Environment</p>
         </section>
 
         <section data-background="img/r.png" data-background-size="50%">
@@ -160,21 +165,33 @@
         </section>
         <section>
             <h2>SAR-optical fusion for deforestation detection in the tropics</h2>
+            <ul>
+                <li>Fused Landsat and PALSAR (L-band SAR) time series</li>
+                <li>Increase in spatial and temporal accuracy with high cloud cover</li>
+            </ul>
 
             <p style="font-size:80%">Reiche, J., Verbesselt, J., Hoekman, D., & Herold, M. (2015). Fusing Landsat and SAR time series to detect deforestation in the tropics. Remote Sensing of Environment</p>
             
         </section>
     </section>
-
     <section>
-        <h2>Tools</h2>
-        <ul>
-            <li><a href="http://bfast.r-forge.r-project.org/">bfast R package</a></li>
-            <li><a href="https://github.com/dutri001/bfastSpatial">bfastSpatial R package</a> (training <a href="http://www.loicdutrieux.com/talks/SCERIN-2015-bfastSpatial">session</a> on Friday)</li>
-            <li><a href="https://github.com/bendv/timeSyncR">timeSyncR</a> R package</li>
-        </ul>
-    </section>
 
+        <section>
+            <h2>Tools</h2>
+            <ul>
+                <li><a href="http://bfast.r-forge.r-project.org/">bfast R package</a></li>
+                <li><a href="https://github.com/dutri001/bfastSpatial">bfastSpatial R package</a> (training <a href="http://www.loicdutrieux.com/talks/SCERIN-2015-bfastSpatial">session</a> on Friday)</li>
+                <li><a href="https://github.com/bendv/timeSyncR">timeSyncR</a> R package</li>
+            </ul>
+
+        </section>
+
+        <section data-background="../SCERIN-2015-bfastSpatial/img/changeMap.png" data-background-size="50%" >
+            <p style="color:black"><i>A change map in 3 lines of code</i></p>
+        </section>
+
+        
+    </section>
 
     <section>
         <h2>Thanks!</h2>
