@@ -184,7 +184,7 @@ for (i in c(stepDir, ndviDir, outDir)) {
         </section>
 
         <section>
-        <h2>One last checks</h2>
+        <h2>One last check</h2>
         <pre>
             <code data-trim class="r">
 # Check that we have the right data in the inDir folder
@@ -216,6 +216,7 @@ processLandsatBatch(x = inDir, outdir = ndviDir, srdir = tmpDir,
                     delete = TRUE, mask = 'fmask', vi = 'ndvi')
                 </code>
             </pre>
+            <p>The function returns a list of TRUE, nothing to worry about, it means that everything went well</p>
             <p>Let's check the output</p>
             <pre>
                 <code data-trim class="r">
@@ -235,7 +236,7 @@ head(list.files(ndviDir))
             <pre>
                 <code data-trim class="r">
 # Make temporal ndvi stack
-ndviStack <- timeStack(x = ndviDir, pattern = '^.*\\.grd$',
+ndviStack <- timeStack(x = ndviDir, pattern = glob2rx('*.grd'),
                        filename = file.path(stepDir, 'ndvi_stack.grd'),
                        datatype = 'INT2S')
 
@@ -269,10 +270,12 @@ time        : 2000-02-03, 2015-06-12 (min, max)
 # Run bfastmonitor (that part takes a long time)
 bfm <- bfmSpatial(x = ndviStack, pptype = 'irregular', start = 2010,
                   formula = response ~ trend + harmon, order = 3,
-                  mc.cores = 3, filename = file.path(outDir, 'bfm_2010.grd'),
+                  mc.cores = 1, filename = file.path(outDir, 'bfm_2010.grd'),
                   monend = 2013)
                 </code>
             </pre>
+            <p>The process takes about 20 min (can be monitored with the system.time() function)</p>
+            <p><tt>formula =</tt> is a particularly important parameter to tune, we'll see what influence it may have on the change results when looking at individual pixels</p>
         </section>
 
         <section>
