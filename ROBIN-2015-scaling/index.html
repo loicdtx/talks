@@ -39,7 +39,7 @@
     <div class="slides">
 
 
-    <section data-background="img/landsat.jpg" data-background-size="50%"> 
+    <section data-background="../SCERIN-2015-change-detection/img/landsat.jpg" data-background-size="50%"> 
     <h2> Remote Sensing based prediction of forest attributes</h2>
     <p><i>Loïc Dutrieux, 2015-07-15</i></p>
     <p><i>ROBIN science meeting, Brussels</i></p>
@@ -58,6 +58,98 @@
             <h3>Forests are constantly evolving</h3>
             <p>Between 2000 and 2012, 2.3 million km&sup2; of forest were lost and 0.8 million km&sup2; were established (Hansen et al. 2013)</p>
         </section>
+    </section>
+
+    <section>
+        <h2>Why do we need maps of forest attributes</h2>
+        <p>Add here a spatially discrete map of biomass and put it next to a continuous map</p>
+    </section>
+
+    <section>
+        <section>
+            <h2>The Remote Sensing scaling recipe</h2>
+            <p>Take</p>
+            <ul>
+                <li>220 <i>in-situ</i> forest sites</li>
+                <li>28 remote sensing preditors</li>
+                <li>Train a random forest model</li>
+                <li>Predict for the whole country</li>
+            </ul>
+        </section>
+        <section>
+            <p>Maye add here figure of the framework</p>
+        </section>
+    </section>
+
+
+    <section>   
+        <section>
+            <h2>Study site</h2>
+            <p>Map of Bolivia with sites</p>
+            <!-- Make the audience guess the country (as a joke) -->
+        </section>
+        <section>
+            <h2><i>In-situ</i> variables</h2>
+            <p><i>(The variables we'll try to predict)</i></p>
+
+        </section>
+        <section>
+            <h2>About the DCA</h2>
+            <p>A summarizing value that represents species composition</p>
+            <p>From each site having count to having a score value</p>
+            <p>Add two matrices to explain how it works</p>
+        </section>
+    </section>
+
+    <section>
+        <section>
+            <h2>Remote sensing predictors</h2>
+            <p><i>Ecologically relevant - data driven</i></p>
+            <ul>
+                <li>Moderate resolution datasets (1km&#178;)</li>
+                <li></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Remote sensing predictors - List</h2>
+            <p>Add table of predictors with expected contribution (and maybe number of predictors)</p>
+        </section>
+    </section>
+
+    <section>
+        <h2>Extracting the data</h2>
+        <p>Add a close up figure of the general framework</p>
+        <ul>
+            <li>We assume sub-pixel spatial homogeneity</li>
+            <li>Spatial aggregation required due to clustering</li>
+            <li>X calibration points after aggregation</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>What's this random forest thing by the way?</h2>
+        <p>Figure (maybe in background) of a forest of regression trees</p>
+        <ul>
+            <li>An ensemble learning method</li>
+            <li>Good prediction performances</li>
+            <li>Relatively interpretable (variable importance)</li>
+            <li>Non-parametric</li>
+            <li>Quite insensitive to <i>potentially</i> irrelevant</li>
+            <li>Well suited to such exploratory data mining approaches</li>
+            <li><i>It's pure coincidence we're using it to predict <b>forest</b> attributes</i></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Wrapping up - Conclusions - What have we learnt?</h2>
+        <ul>
+            <li>A pretty simple scaling approach yielded good results for floristic properties of forests</li>
+            <li>How to make best use of these maps?</li> <!--Maybe that's a question to keep in mind and explore in a follow up discussion-->
+            <li>Potential to scale structural attributes of forests is limited</li>
+            <ul>
+                <li>But some technological improvements are expected (GEDI, biomass satellite)</li>
+            </ul>
+        </ul>
     </section>
 
    
