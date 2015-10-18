@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <link rel="stylesheet" href="../css/reveal.css">
-        <link rel="stylesheet" href="../css/theme/night.css" id="theme">
+        <link rel="stylesheet" href="../css/theme/serif.css" id="theme">
 
         <!-- For syntax highlighting -->
         <link rel="stylesheet" href="../lib/css/zenburn.css">
@@ -39,7 +39,7 @@
     <div class="slides">
 
 
-    <section data-background="../SCERIN-2015-change-detection/img/landsat.jpg" data-background-size="50%"> 
+    <section> 
     <h2> Remote Sensing based prediction of forest attributes</h2>
     <p><i>Loïc Dutrieux, 2015-07-15</i></p>
     <p><i>ROBIN science meeting, Brussels</i></p>
@@ -48,21 +48,21 @@
 
     </section>
 
-    <section>
-
-        <section data-background="../SCERIN-2015-change-detection/img/biodiversity.jpg" data-background-size="50%">
-            <p><i>"Changes in forest cover affect the delivery of important ecosystem services, including biodiversity richness, climate regulation, carbon storage, and water supplies"</i>(Foley et al. 2005; Hansen et al. 2013)</p>
-        </section>
-
-        <section data-background="../SCERIN-2015-change-detection/img/deforestation.jpg" data-background-size="50%">
-            <h3>Forests are constantly evolving</h3>
-            <p>Between 2000 and 2012, 2.3 million km&sup2; of forest were lost and 0.8 million km&sup2; were established (Hansen et al. 2013)</p>
-        </section>
-    </section>
 
     <section>
-        <h2>Why do we need maps of forest attributes</h2>
-        <p>Add here a spatially discrete map of biomass and put it next to a continuous map</p>
+        <h3>Why do we need maps of forest attributes?</h3>
+        <img src="img/biomass.png" width="50%" style="float:left; border:none; box-shadow:none">
+        <p><i>Is that sufficient to:</i></p>
+        <ul style="width:39%">
+            <li>Find spatial patterns ?</li>
+            <li>Design region specific policy actions ?</li>
+            <li></li>
+            <p>Limitations</p>
+            <li>Lacks spatial details</li>
+            <li>Spatially discrete</li>
+            <li>Costly to acquire</li>
+        </ul>
+
     </section>
 
     <section>
@@ -72,12 +72,21 @@
             <ul>
                 <li>220 <i>in-situ</i> forest sites</li>
                 <li>28 remote sensing preditors</li>
-                <li>Train a random forest model</li>
-                <li>Predict for the whole country</li>
+                <li>A random forest model</li>
             </ul>
         </section>
         <section>
-            <p>Maye add here figure of the framework</p>
+            <img src="img/conceptualFigure.jpg" width="50%" style="float:left">
+            <ul style="width:40%">
+            Step by step:
+            <br><br>
+                <li>Prepare remote sensing layers</li>
+                <li>Extract remote sensing variables for every <i>in-situ</i> location</li>
+                <li>Train random forest model</li>
+                <li>Select most important predictors</li>
+                <li>Predict</li>
+
+            </ul>
         </section>
     </section>
 
@@ -85,59 +94,189 @@
     <section>   
         <section>
             <h2>Study site</h2>
-            <p>Map of Bolivia with sites</p>
+            <img src="img/boliviaOverview.png" width="60%" style="border:none; box-shadow:none">
             <!-- Make the audience guess the country (as a joke) -->
         </section>
         <section>
             <h2><i>In-situ</i> variables</h2>
             <p><i>(The variables we'll try to predict)</i></p>
 
+            <table style="font-size:80%">
+                <tr>
+                    <th>Variable</th>
+                    <th>Category</th>
+                </tr>
+                <tr>
+                    <td>Species composition (First two DCA* axes)</td>
+                    <td>Floristic</td>
+                </tr>
+                <tr>
+                    <td>Species richness</td>
+                    <td>Floristic</td>
+                </tr>
+                <tr>
+                    <td>Emergent density</td>
+                    <td>Functional group</td>
+                </tr>
+                <tr>
+                    <td>Liana infestation</td>
+                    <td>Functional group</td>
+                </tr>
+                <tr>
+                    <td>Palm density</td>
+                    <td>Functional group</td>
+                </tr>
+                <tr>
+                    <td>Mean DBH</td>
+                    <td>Structure</td>
+                </tr>
+                <tr>
+                    <td>Tree density</td>
+                    <td>Structure</td>
+                </tr>
+                <tr>
+                    <td>Basal area</td>
+                    <td>Structure</td>
+                </tr>
+            </table>
+
+            <p style="font-size:60%">*Detrended Correspondance Analysis (DCA) summarizes species count for every site into a score.</p>
+
         </section>
-        <section>
-            <h2>About the DCA</h2>
-            <p>A summarizing value that represents species composition</p>
-            <p>From each site having count to having a score value</p>
-            <p>Add two matrices to explain how it works</p>
-        </section>
+       
     </section>
 
     <section>
         <section>
             <h2>Remote sensing predictors</h2>
-            <p><i>Ecologically relevant - data driven</i></p>
+            <p><i>A set of ecologically relevant variables</i></p>
             <ul>
                 <li>Moderate resolution datasets (1km&#178;)</li>
-                <li></li>
+                <li>A lot of them derived from MODIS</li>
             </ul>
         </section>
         <section>
-            <h2>Remote sensing predictors - List</h2>
-            <p>Add table of predictors with expected contribution (and maybe number of predictors)</p>
+            <h2>Remote sensing predictors</h2>
+            <table style="font-size:70%">
+                <tr>
+                    <th>Variable</th>
+                    <th>Expected contribution</th>
+                    <th>Number of predictors</th>
+                </tr>
+                <tr>
+                    <td>Surface reflectance</td>
+                    <td>Leaf chemistry</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>LAI</td>
+                    <td>Foliage structure</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Tree height</td>
+                    <td>Vertical structure</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>NPP</td>
+                    <td>Productivity</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Phenology (HANTS)</td>
+                    <td>Intra-annual dynamics</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Terrain metrics</td>
+                    <td>Topographic conditions</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Cannopy clumping</td>
+                    <td>Canopy structure</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Tree cover</td>
+                    <td>Forest density</td>
+                    <td>1</td>
+                </tr>
+            </table>
         </section>
     </section>
 
     <section>
-        <h2>Extracting the data</h2>
-        <p>Add a close up figure of the general framework</p>
+        <section data-background="img/conceptualFigure_sub1.jpg" data-background-size="50%">
+            <h2 style="color:black">Extracting the data</h2>
+        </section>
+        <section>
+            <h2>Data extraction</h2>
+            <ul>
+                <li>We assume sub-pixel spatial homogeneity</li>
+                <li>Spatial aggregation required due to clustering of <i>in-situ</i> sites</li>
+                <li>104 calibration points after aggregation</li>
+            </ul>
+            
+        </section>
+    </section>
+
+    <section data-background="img/rf.png" data-background-size="100px" data-background-repeat="repeat">
+        <h2>What's random forest the way?</h2>
         <ul>
-            <li>We assume sub-pixel spatial homogeneity</li>
-            <li>Spatial aggregation required due to clustering</li>
-            <li>X calibration points after aggregation</li>
+            <li>An ensemble learning method</li>
+            <li>Builds multiple regression trees</li>
+            <li>Good prediction performances</li>
+            <li>Relatively interpretable (variable importance)</li>
+            <li>Quite insensitive to <i>potentially</i> irrelevant predictors</li>
+            <li>Well suited to such exploratory data mining approaches</li>
+            <li class="fragment"><i>It's pure coincidence we're using it to predict <b>forest</b> attributes</i></li>
         </ul>
     </section>
 
     <section>
-        <h2>What's this random forest thing by the way?</h2>
-        <p>Figure (maybe in background) of a forest of regression trees</p>
-        <ul>
-            <li>An ensemble learning method</li>
-            <li>Good prediction performances</li>
-            <li>Relatively interpretable (variable importance)</li>
-            <li>Non-parametric</li>
-            <li>Quite insensitive to <i>potentially</i> irrelevant</li>
-            <li>Well suited to such exploratory data mining approaches</li>
-            <li><i>It's pure coincidence we're using it to predict <b>forest</b> attributes</i></li>
-        </ul>
+        <section>
+            <h2>Results</h2>
+            <p>Modelling performances assessment</p>
+            <img src="img/DCA1_scatter.png" width="45%" style="border:none; box-shadow:none">
+            <img src="img/treeDensity_scatter.png" width="45%" style="border:none; box-shadow:none">
+
+        </section>
+        <section>
+            <p>Good potential</p>
+            <ul>
+                <li>Species composition</li>
+                <li>Species richness</li>
+                <li>Palm density</li>
+            </ul>
+            <p>Limited potential</p>
+            <ul>
+                <li>Structural variables</li>
+            </ul>
+        </section>
+        <section>
+            <img src="img/mapDCA1.png" width="35%" style="border:none; box-shadow:none">
+            <img src="img/mapDCA2.png" width="35%" style="border:none; box-shadow:none">
+            <img src="img/mapRichness.png" width="35%" style="border:none; box-shadow:none">
+            <img src="img/mapPalm.png" width="35%" style="border:none; box-shadow:none">
+        </section>
+    </section>
+
+    <section>
+        <section data-background="img/mapDCA1.png" data-background-size="50%">
+        <!-- Add one of the prediced map in bg -->
+            <h2>What now?</h2>
+            <p><i>We have spaially continuous information on floristic properties at 1km resolution, what can we do with it?</i></p>
+
+        </section>
+
+        <section data-background="img/bolivia_correlation_2.png" data-background-size="50%">
+            <h3>Relation between species richness and biomass varies in space</h3>
+            <br><br><br><br>
+
+            <p>Add references Metzger and Avitabile</p>
+        </section>
     </section>
 
     <section>
