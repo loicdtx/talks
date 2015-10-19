@@ -41,28 +41,33 @@
 
     <section> 
     <h2> Remote Sensing based prediction of forest attributes</h2>
-    <p><i>Loïc Dutrieux, 2015-07-15</i></p>
+    <p><i>Loïc Dutrieux, 2015-10-20</i></p>
     <p><i>ROBIN science meeting, Brussels</i></p>
     <p>Julian Equihua, Lammert Kooistra, Martin Herold, Mariso Toledo, Nataly Ascarunz, Gerbert Roerink, Marielos Peña-Claros, Lourens Poorter</p>
     <!-- <p>Laboratory of Geo-Information Science and Remote Sensing<br>Wageningen University, The Netherlands</p> -->
 
     </section>
 
-
     <section>
-        <h3>Why do we need maps of forest attributes?</h3>
-        <img src="img/biomass.png" width="50%" style="float:left; border:none; box-shadow:none">
-        <p><i>Is that sufficient to:</i></p>
-        <ul style="width:39%">
-            <li>Find spatial patterns ?</li>
-            <li>Design region specific policy actions ?</li>
-            <li></li>
-            <p>Limitations</p>
-            <li>Lacks spatial details</li>
-            <li>Spatially discrete</li>
-            <li>Costly to acquire</li>
-        </ul>
+        <section>
+            <h3>Why do we need maps of forest attributes?</h3>
+            <img src="img/biomass.png" width="50%" style="float:left; border:none; box-shadow:none">
+            <p><i>Is that sufficient to:</i></p>
+            <ul style="width:39%">
+                <li>Find spatial patterns ?</li>
+                <li>Design region specific policy actions ?</li>
+                <li></li>
+                <p>Limitations</p>
+                <li>Lacks spatial details</li>
+                <li>Spatially discrete</li>
+                <li>Costly to acquire</li>
+            </ul>
+        </section>
 
+        <section>
+            <img src="img/asner_biomass.jpg" width="40%">
+            <p style="font-size:60%">Asner, Gregory P., et al. "High-resolution forest carbon stocks and emissions in the Amazon." <i>Proceedings of the National Academy of Sciences</i> 107.38 (2010): 16738-16742.</p>
+        </section>
     </section>
 
     <section>
@@ -80,9 +85,10 @@
             <ul style="width:40%">
             Step by step:
             <br><br>
-                <li>Prepare remote sensing layers</li>
-                <li>Extract remote sensing variables for every <i>in-situ</i> location</li>
-                <li>Train random forest model</li>
+                <li class="fragment highlight-green">Select study site</li>
+                <li class="fragment highlight-green">Select and prepare remote sensing layers</li>
+                <li class="fragment highlight-green">Extract remote sensing variables for every <i>in-situ</i> location</li>
+                <li class="fragment highlight-green">Train random forest model</li>
                 <li>Select most important predictors</li>
                 <li>Predict</li>
 
@@ -90,62 +96,61 @@
         </section>
     </section>
 
-
-    <section>   
-        <section>
-            <h2>Study site</h2>
-            <img src="img/boliviaOverview.png" width="60%" style="border:none; box-shadow:none">
-            <!-- Make the audience guess the country (as a joke) -->
-        </section>
-        <section>
-            <h2><i>In-situ</i> variables</h2>
-            <p><i>(The variables we'll try to predict)</i></p>
-
-            <table style="font-size:80%">
-                <tr>
-                    <th>Variable</th>
-                    <th>Category</th>
-                </tr>
-                <tr>
-                    <td>Species composition (First two DCA* axes)</td>
-                    <td>Floristic</td>
-                </tr>
-                <tr>
-                    <td>Species richness</td>
-                    <td>Floristic</td>
-                </tr>
-                <tr>
-                    <td>Emergent density</td>
-                    <td>Functional group</td>
-                </tr>
-                <tr>
-                    <td>Liana infestation</td>
-                    <td>Functional group</td>
-                </tr>
-                <tr>
-                    <td>Palm density</td>
-                    <td>Functional group</td>
-                </tr>
-                <tr>
-                    <td>Mean DBH</td>
-                    <td>Structure</td>
-                </tr>
-                <tr>
-                    <td>Tree density</td>
-                    <td>Structure</td>
-                </tr>
-                <tr>
-                    <td>Basal area</td>
-                    <td>Structure</td>
-                </tr>
-            </table>
-
-            <p style="font-size:60%">*Detrended Correspondance Analysis (DCA) summarizes species count for every site into a score.</p>
-
-        </section>
-       
+    <section>
+        <h2>Study site</h2>
+        <img src="img/boliviaOverview.png" width="60%" style="border:none; box-shadow:none">
+        <!-- Make the audience guess the country (as a joke) -->
     </section>
 
+ 
+    <section>
+        <h2><i>In-situ</i> variables</h2>
+        <p><i>(The variables we'll try to predict)</i></p>
+
+        <table style="font-size:80%">
+            <tr>
+                <th>Variable</th>
+                <th>Category</th>
+            </tr>
+            <tr>
+                <td>Species composition (First two DCA* axes)</td>
+                <td>Floristic</td>
+            </tr>
+            <tr>
+                <td>Species richness</td>
+                <td>Floristic</td>
+            </tr>
+            <tr>
+                <td>Emergent density</td>
+                <td>Functional group</td>
+            </tr>
+            <tr>
+                <td>Liana infestation</td>
+                <td>Functional group</td>
+            </tr>
+            <tr>
+                <td>Palm density</td>
+                <td>Functional group</td>
+            </tr>
+            <tr>
+                <td>Mean DBH</td>
+                <td>Structure</td>
+            </tr>
+            <tr>
+                <td>Tree density</td>
+                <td>Structure</td>
+            </tr>
+            <tr>
+                <td>Basal area</td>
+                <td>Structure</td>
+            </tr>
+        </table>
+
+        <p style="font-size:60%">*Detrended Correspondance Analysis (DCA) summarizes species count for every site into a score.</p>
+        <p style="font-size:60%">Toledo, 2010. Neotropical lowland forests along environmental gradients</p>
+
+    </section>
+    
     <section>
         <section>
             <h2>Remote sensing predictors</h2>
@@ -153,6 +158,7 @@
             <ul>
                 <li>Moderate resolution datasets (1km&#178;)</li>
                 <li>A lot of them derived from MODIS</li>
+                <li>Available globally</li>
             </ul>
         </section>
         <section>
@@ -205,14 +211,15 @@
                 </tr>
             </table>
         </section>
-    </section>
+    </section>   
+
 
     <section>
         <section data-background="img/conceptualFigure_sub1.jpg" data-background-size="50%">
-            <h2 style="color:black">Extracting the data</h2>
+            <h2>Data extraction</h2>
         </section>
         <section>
-            <h2>Data extraction</h2>
+            <h2>Data extraction - considerations of scale</h2>
             <ul>
                 <li>We assume sub-pixel spatial homogeneity</li>
                 <li>Spatial aggregation required due to clustering of <i>in-situ</i> sites</li>
@@ -222,17 +229,24 @@
         </section>
     </section>
 
-    <section data-background="img/rf.png" data-background-size="100px" data-background-repeat="repeat">
-        <h2>What's random forest the way?</h2>
-        <ul>
-            <li>An ensemble learning method</li>
-            <li>Builds multiple regression trees</li>
-            <li>Good prediction performances</li>
-            <li>Relatively interpretable (variable importance)</li>
-            <li>Quite insensitive to <i>potentially</i> irrelevant predictors</li>
-            <li>Well suited to such exploratory data mining approaches</li>
-            <li class="fragment"><i>It's pure coincidence we're using it to predict <b>forest</b> attributes</i></li>
-        </ul>
+    <section>
+        <section data-background="img/rf.png" data-background-size="50%" data-background-repeat="none">
+            <h2>Random forest ?</h2>
+            <br><br><br><br><br><br><br><br><br>
+        </section>
+            
+        <section>
+            <h2>What is random forest?</h2>
+            <ul>
+                <li>An ensemble learning method</li>
+                <li>Builds multiple regression trees</li>
+                <li>Good prediction performances</li>
+                <li>Relatively interpretable (variable importance)</li>
+                <li>Quite insensitive to <i>potentially</i> irrelevant predictors</li>
+                <li>Well suited to such exploratory data mining approaches</li>
+                <li class="fragment"><i>It's pure coincidence we're using it to predict <b>forest</b> attributes</i></li>
+            </ul>
+        </section>
     </section>
 
     <section>
@@ -244,16 +258,47 @@
 
         </section>
         <section>
-            <p>Good potential</p>
-            <ul>
-                <li>Species composition</li>
-                <li>Species richness</li>
-                <li>Palm density</li>
-            </ul>
-            <p>Limited potential</p>
-            <ul>
-                <li>Structural variables</li>
-            </ul>
+           <h2>Summary of variables remote sensing potential</h2>
+
+            <table style="font-size:80%">
+            <tr bgcolor="grey">
+                <th>Variable</th>
+                <th>Category</th>
+            </tr>
+            <tr bgcolor="green">
+                <td>Species composition (First two DCA* axes)</td>
+                <td>Floristic</td>
+            </tr>
+            <tr bgcolor="green">
+                <td>Species richness</td>
+                <td>Floristic</td>
+            </tr>
+            <tr bgcolor="red">
+                <td>Emergent density</td>
+                <td>Functional group</td>
+            </tr>
+            <tr bgcolor="red">
+                <td>Liana infestation</td>
+                <td>Functional group</td>
+            </tr>
+            <tr bgcolor="green">
+                <td>Palm density</td>
+                <td>Functional group</td>
+            </tr>
+            <tr bgcolor="red">
+                <td>Mean DBH</td>
+                <td>Structure</td>
+            </tr>
+            <tr bgcolor="red">
+                <td>Tree density</td>
+                <td>Structure</td>
+            </tr>
+            <tr bgcolor="red">
+                <td>Basal area</td>
+                <td>Structure</td>
+            </tr>
+        </table>
+
         </section>
         <section>
             <img src="img/mapDCA1.png" width="35%" style="border:none; box-shadow:none">
@@ -265,29 +310,30 @@
 
     <section>
         <section data-background="img/mapDCA1.png" data-background-size="50%">
-        <!-- Add one of the prediced map in bg -->
             <h2>What now?</h2>
             <p><i>We have spaially continuous information on floristic properties at 1km resolution, what can we do with it?</i></p>
-
         </section>
 
         <section data-background="img/bolivia_correlation_2.png" data-background-size="50%">
-            <h3>Relation between species richness and biomass varies in space</h3>
-            <br><br><br><br>
+            <h3>Does species diversity matter for biomass?</h3>
+            <br><br>
+            <p class="fragment">According to this correlation map:</p>
+            <p class="fragment" style="font-size:150%">It depends where !</p>
+            <br><br>
 
-            <p>Add references Metzger and Avitabile</p>
+            <p style="font-size:50%">Avitabile V., Herold M., Heuvelink G., Lewis S.L., Phillips O.L., Asner G. P. et al., 2015. An integrated pan-tropical biomass maps using multiple reference datasets. <i>Global Change Biology</i> (in review)</p>
+            <p style="font-size:50%">Metzger, Marc J., et al. "A high‐resolution bioclimate map of the world: a unifying framework for global biodiversity research and monitoring." <i>Global Ecology and Biogeography</i></p>
         </section>
     </section>
 
     <section>
-        <h2>Wrapping up - Conclusions - What have we learnt?</h2>
-        <ul>
-            <li>A pretty simple scaling approach yielded good results for floristic properties of forests</li>
-            <li>How to make best use of these maps?</li> <!--Maybe that's a question to keep in mind and explore in a follow up discussion-->
-            <li>Potential to scale structural attributes of forests is limited</li>
-            <ul>
-                <li>But some technological improvements are expected (GEDI, biomass satellite)</li>
-            </ul>
+        <h3>Wrapping up - Conclusions - What have we learnt?</h3>
+        <ul style="list-style:none; font-size:60%; display:inline-block">
+            <li><img src="img/mapDCA1.png" height="50" width="50" style="vertical-align:middle; box-shadow:none"> We can predict biodiversity using remote sensing (<i>Using a relatively simple approach</i>)</li>
+            <li><img src="img/bolivia_correlation_2.png" height="50" width="50" style="vertical-align:middle; box-shadow:none"> These maps can be used to understand relations spatially. (<i>But we needs to think of how to use them to their full potential</i>)</li>
+            <li><img src="img/treeDensity_scatter.png" height="50" width="50" style="vertical-align:middle; box-shadow:none"> Potential to scale structural attributes of forests is limited</li>
+            <br>
+            <li><img src="img/satellite.JPG" height="50" width="50" style="vertical-align:middle; box-shadow:none"> But some future technological improvements are expected (GEDI, biomass satellite)</li>
         </ul>
     </section>
 
