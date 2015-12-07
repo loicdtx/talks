@@ -31,6 +31,18 @@
         <!--[if lt IE 9]>
         <script src="../lib/js/html5shiv.js"></script>
         <![endif]-->
+
+        <!-- Custom CSS -->
+        <style type="text/css">
+            #firstSlide p {color: white; width: 100%; }
+            #firstSlide h3 {color: white; width: 100%; }
+            #firstSlide h4 {color: white; width: 100%; }
+            /*image background filter*/
+            .backgrounds {
+                 -webkit-filter: contrast(70%);
+                 -webkit-filter: brightness(60%);
+             }
+        </style>
     </head>
 
     <body>
@@ -39,7 +51,8 @@
     <div class="slides">
 
 
-    <section> 
+    <section data-background="img/studyArea_artistic.png" data-background-size="50%" id="firstSlide">
+
         <h3> Reconstructing Land Use History from Landsat Time-Series</h3>
         <h4><em>Case study of Swidden Agriculture Intensification in Brazil</em></h4>
         <p><i>Loïc Dutrieux, 2015-12-18</i></p>
@@ -52,26 +65,41 @@
 
     <section>
         <h2>First Slide</h2>
+        <p>paragraph</p>
     </section>
 
     <section>
         <section data-transition="none" data-transition-speed="fast">
             <h2>We worked at field level</h2>
             <img style="background: none; border: none; float:left" src="img/sb_2004.png" width="50%">
+            <ul style="width:45%">
+            <br><br>
+                <li>But there is no cadastre !</li>
+            </ul>
         </section>
         <section data-transition="none" data-transition-speed="fast">
             <h2>We worked at field level</h2>
             <img style="background: none; border: none; float:left" src="img/sb.gif" width="50%">
+            <ul style="width:45%">
+            <br><br>
+                <li>But there is no cadastre !</li>
+                <li>And fields keep moving !</li>
+            </ul>
         </section>
         <section data-transition="none" data-transition-speed="fast">
             <h2>We worked at field level</h2>
             <img style="background: none; border: none; float:left" src="img/sb_seg.gif" width="50%">
-            <ul style="width:40%">
+            <ul style="width:45%">
             <br><br>
-                <li>Spatio-temporal segmentation (Mean-shift)</li>
+                <li>But there is no cadastre !</li>
+                <li>And fields keep moving !</li>
+                <br><br>
+                <b>Spatio-temporal segmentation</b>
+                <br><br>
                 <li>Delineates area of homogeneous temporal behavior</li>
                 <li>Implemented in Orfeo-Toolbox (OTB)</li>
             </ul>
+
         </section>
     </section>
 
