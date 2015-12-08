@@ -41,8 +41,31 @@
             .backgrounds {
                  -webkit-filter: contrast(70%);
                  -webkit-filter: brightness(60%);
-             }
-        </style>
+            }
+
+            .profilePic {
+                display: inline-block;
+                margin-left: 5px;
+                width: 100px;
+                height: 100px;
+                border-radius: 100%;
+                border: 2px solid black;
+                background-size:cover;
+            }
+            .reveal section img {
+                border: none;
+                background: none;
+            }
+
+            .reveal .ref {
+                position: absolute;
+                bottom: -50px;
+                left: 0px;
+                width: 70%;
+                text-align: left;
+                font-size:50%;
+            }
+            </style>
     </head>
 
     <body>
@@ -67,17 +90,6 @@
         <section>
             <!-- TODO: describe project initiation -->
             <h2>Background - how did it start?</h2>
-            <style type="text/css">
-                .profilePic {
-                    display: inline-block;
-                    margin-left: 5px;
-                    width: 100px;
-                    height: 100px;
-                    border-radius: 100%;
-                    border: 2px solid black;
-                    background-size:cover;
-                    }
-            </style>
 
 
             <div class="profilePic" style="background-image:url(img/cata.jpg)"></div>
@@ -92,9 +104,18 @@
 
         </section>
         <section>
-            <p>Description of study area, summary of Catarina's findings</p>
+            <p>Study area and ecological relevance</p>
             <!-- TODO: add picture -->
-            <img src="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" width="50%">
+            <img src="img/studyAreaSmall.png" width="45%" style="float: left">
+            <img src="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" width="30%">
+            <ul style="width: 50%">
+                <li>Swidden cultivation Area</li>
+                <li>2 years < rotation < 7 years </li>
+                <li>Fields used more intensively suffer from slower forest recovery after abandonment</li>
+            </ul>
+            <div class="ref">
+                <p>Jakovac, Catarina C., et al. "Loss of secondary‐forest resilience by land‐use intensification in the Amazon." Journal of Ecology 103.1 (2015): 67-77.</p>
+            </div>
         </section>
     </section>
 
@@ -187,6 +208,17 @@
         </section>
         <section data-background="img/openSource.png" data-background-size="40%">
             <h2>And everything is free and open source</h2>
+        </section>
+    </section>
+
+    <section>
+        <h2>Results</h2>
+    </section>
+
+    <section>
+        <section>
+            <h2>Number of cultivation cycles</h2>
+            <img src="img/resultMap.png">
         </section>
     </section>
 
