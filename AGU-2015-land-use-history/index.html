@@ -64,33 +64,59 @@
     </section>
 
     <section>
-        <h2>First Slide</h2>
-        <p>paragraph</p>
+        <section>
+            <!-- TODO: describe project initiation -->
+            <h2>Background - how did it start</h2>
+        </section>
+        <section>
+            <p>Description of study area, summary of Catarina's findings</p>
+            <!-- TODO: add picture -->
+            <img src="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" width="50%">
+        </section>
     </section>
 
     <section>
+        <h2>Method</h2>
+        <ul>
+            <li>Landsat data</li>
+            <li>Spatio-temporal segmentation</li>
+            <li>Breakpoints detection</li>
+            <li>Breakpoints classification</li>
+            <li>Validation</li>
+        </ul>
+    </section>
+
+
+    <section>
+        <section>
+            <h2>Landsat data</h2>
+            <p>We used all of them</p>
+            <p>We used NDMI time-series</p>
+            <img src="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" width="50%">
+            <!-- TODO: add layer stack + time-series profile -->
+        </section>
         <section data-transition="none" data-transition-speed="fast">
             <h2>We worked at field level</h2>
+            <h3><em>Spatio-temporal segmentation</em></h3>
             <img style="background: none; border: none; float:left" src="img/sb_2004.png" width="50%">
             <ul style="width:45%">
-            <br><br>
-                <li>But there is no cadastre !</li>
+                <li class="fragment">But there is no cadastre !</li>
             </ul>
         </section>
         <section data-transition="none" data-transition-speed="fast">
             <h2>We worked at field level</h2>
+            <h3><em>Spatio-temporal segmentation</em></h3>
             <img style="background: none; border: none; float:left" src="img/sb.gif" width="50%">
             <ul style="width:45%">
-            <br><br>
                 <li>But there is no cadastre !</li>
                 <li>And fields keep moving !</li>
             </ul>
         </section>
         <section data-transition="none" data-transition-speed="fast">
             <h2>We worked at field level</h2>
+            <h3><em>Spatio-temporal segmentation</em></h3>
             <img style="background: none; border: none; float:left" src="img/sb_seg.gif" width="50%">
             <ul style="width:45%">
-            <br><br>
                 <li>But there is no cadastre !</li>
                 <li>And fields keep moving !</li>
                 <br><br>
@@ -99,7 +125,45 @@
                 <li>Delineates area of homogeneous temporal behavior</li>
                 <li>Implemented in Orfeo-Toolbox (OTB)</li>
             </ul>
+        </section>
+        <section>
+            <h2>Breakpoints detection</h2>
+            <p><em>We divided time-series in segments separated by breakpoints</em></p>
+            <ul>
+                <li>Segment == stable land use regime</li>
+                <li>Breakpoints == shift in land use regime</li>
+                <ul>
+                    <li>Stable forest to agriculture (Burning)</li>
+                    <li>Agriculture to regrowing forest (Abandonment)</li>
+                    <li>Regrowing forest to stable forest (Stabilization)</li>
+                </ul>
+            </ul>
+            <p>Searches for changes in regression parameters of the following model</p>
+            <!-- TODO: Add image of segmented profile, add breakpoints/seasonal model formula -->
+        </section>
+        <section>
+            <h2>Profiles characterization by classification of breakpoints</h2>
+            <em>Now we have segmented time-series at field level, but this is still very raw information that needs to be characterized</em>
 
+            <ul>
+                <li>Number of burn events correspond to number of slash and burn cycles</li>
+                <li>Visual interpretation of (300?) breakpoints</li>
+                <li>Training of random forest classifier</li>
+                <ul>
+                    <p>Regressors are:</p>
+                    <li>Characteristics of surrounding segments</li>
+                </ul>
+                <li>Classification of breakpoints</li>
+                <li>Number of burning breakpoints == number of cultivation cycles</li>
+            </ul>
+
+        </section>
+        <section>
+            <h2>Validation</h2>
+            <p>Validation using an independent dataset</p>
+        </section>
+        <section data-background="img/openSource.png" data-background-size="40%">
+            <h2>And everything is free and open source</h2>
         </section>
     </section>
 
