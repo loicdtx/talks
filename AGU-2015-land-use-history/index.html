@@ -58,12 +58,10 @@
             }
 
             .reveal .ref {
-                position: absolute;
-                bottom: -50px;
-                left: 0px;
+                float: bottom;
                 width: 80%;
                 text-align: left;
-                font-size:50%;
+                font-size:40%;
             }
 
             .reveal .ref p {
@@ -108,15 +106,15 @@
 
         </section>
         <section>
-            <p>Study area and ecological relevance</p>
+            <h3>Study area and ecological relevance</h3>
             <!-- TODO: add picture -->
             <img src="img/studyAreaSmall.png" width="45%" style="float: left">
-            <img src="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" width="30%">
             <ul style="width: 50%">
                 <li>Swidden cultivation Area</li>
                 <li>2 years < rotation < 7 years </li>
                 <li>Fields used more intensively suffer from slower forest recovery after abandonment</li>
             </ul>
+            <img src="img/tefe.gif" width="50%">
             <div class="ref">
                 <p>Jakovac, Catarina C., et al. "Loss of secondary‐forest resilience by land‐use intensification in the Amazon." Journal of Ecology 103.1 (2015): 67-77.</p>
             </div>
@@ -175,23 +173,16 @@
             </ul>
         </section>
         <section>
-            <h2>Breakpoints detection</h2>
+            <h3>Breakpoints detection</h3>
             <p><em>We divided time-series in segments separated by breakpoints</em></p>
 
+            <img src="img/bp.gif" width="80%">
+
+            <!-- <p>Searches for changes in regression parameters of the following model</p> -->
             <p>
-                $ y_t=\alpha_1 + \alpha_2 t + \sum_{j=1}^{k} \gamma_j \sin(\frac{2\pi jt}{f} + \delta_j) + \epsilon_t $
+                $ y_t=\color{yellow}{\alpha_1} + \color{blue}{\alpha_2} t + \sum_{j=1}^{k} \color{green}{\gamma_j} \sin(\frac{2\pi jt}{f} + \delta_j) + \epsilon_t $
             </p>
 
-            <ul>
-                <li>Segment == stable land use regime</li>
-                <li>Breakpoints == shift in land use regime</li>
-                <ul>
-                    <li>Stable forest to agriculture (Burning)</li>
-                    <li>Agriculture to regrowing forest (Abandonment)</li>
-                    <li>Regrowing forest to stable forest (Stabilization)</li>
-                </ul>
-            </ul>
-            <p>Searches for changes in regression parameters of the following model</p>
             <!-- TODO: Add image of segmented profile, add breakpoints/seasonal model formula -->
             <div class="ref">
                 <p>Bai, J., & Perron, P. (1998). Estimating and testing linear models with multiple structural changes. Econometrica, 47-78.</p>
@@ -200,6 +191,22 @@
 
             </div>
         </section>
+
+        <section>
+            <h3>Breakpoints detection</h3>
+            <p><em>We divided time-series in segments separated by breakpoints</em></p>
+            <img src="img/annotatedProfile.png" width="70%">
+            <ul>
+                <li>Segements correspond to stable land use regimes</li>
+                <li>Breakpoints correspond to shifts in land use regime</li>
+                <ul>
+                    <li>Stable forest to agriculture (Burning)</li>
+                    <li>Agriculture to regrowing forest (Abandonment)</li>
+                    <li>Regrowing forest to stable forest (Stabilization)</li>
+                </ul>
+            </ul>
+        </section>
+
         <section>
             <h2>Profiles characterization by classification of breakpoints</h2>
             <em>Now we have segmented time-series at field level, but this is still very raw information that needs to be characterized</em>
