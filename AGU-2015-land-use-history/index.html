@@ -61,9 +61,13 @@
                 position: absolute;
                 bottom: -50px;
                 left: 0px;
-                width: 70%;
+                width: 80%;
                 text-align: left;
                 font-size:50%;
+            }
+
+            .reveal .ref p {
+                margin: 5px;
             }
             </style>
     </head>
@@ -173,6 +177,11 @@
         <section>
             <h2>Breakpoints detection</h2>
             <p><em>We divided time-series in segments separated by breakpoints</em></p>
+
+            <p>
+                $ y_t=\alpha_1 + \alpha_2 t + \sum_{j=1}^{k} \gamma_j \sin(\frac{2\pi jt}{f} + \delta_j) + \epsilon_t $
+            </p>
+
             <ul>
                 <li>Segment == stable land use regime</li>
                 <li>Breakpoints == shift in land use regime</li>
@@ -184,6 +193,12 @@
             </ul>
             <p>Searches for changes in regression parameters of the following model</p>
             <!-- TODO: Add image of segmented profile, add breakpoints/seasonal model formula -->
+            <div class="ref">
+                <p>Bai, J., & Perron, P. (1998). Estimating and testing linear models with multiple structural changes. Econometrica, 47-78.</p>
+                <p>Zeileis, A., Kleiber, C., Krämer, W., & Hornik, K. (2003). Testing and dating of structural changes in practice. Computational Statistics & Data Analysis, 44(1), 109-123.</p>
+                <p>Verbesselt, J., Hyndman, R., Newnham, G., & Culvenor, D. (2010). Detecting trend and seasonal changes in satellite image time series. Remote sensing of Environment, 114(1), 106-115.</p>
+
+            </div>
         </section>
         <section>
             <h2>Profiles characterization by classification of breakpoints</h2>
@@ -257,6 +272,10 @@
                 center: true,
                 theme: Reveal.getQueryHash().theme || 'night', // available themes are in /css/theme
                 transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                math: {
+                    mathjax: '../mathjax/MathJax.js',
+                    config: 'TeX-AMS_HTML'  // See http://docs.mathjax.org/en/latest/config-files.html
+                },
                 // Parallax scrolling
                 // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
                 // parallaxBackgroundSize: '2100px 900px',
@@ -267,7 +286,8 @@
                     { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: '../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                    { src: '../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    { src: '../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: '../plugin/math/math.js', async: true }
                 ]
             });
         </script>
