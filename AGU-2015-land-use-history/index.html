@@ -62,6 +62,7 @@
                 width: 80%;
                 text-align: left;
                 font-size:40%;
+                
             }
 
             .reveal .ref p {
@@ -86,6 +87,10 @@
         <p>Wageningen University, The Netherlands</p>
         <!-- TODO: Add Wageningen Logo next to affiliation -->
         <!-- TODO: Add cool background image -->
+        <br><br>
+        <div class="ref">
+            <p>Dutrieux, L.P., Jakovac, C.C., Latifah, S.H., & Kooistra, L. (2015). Reconstructing land use history from Landsat time-series. <em>Case study of a swidden agriculture system in Brazil</em>. International Journal of Applied Earth Observation and Geoinformation.</p>
+        </div>
     </section>
 
     <section>
@@ -209,25 +214,17 @@
 
         <section>
             <h2>Profiles characterization by classification of breakpoints</h2>
-            <em>Now we have segmented time-series at field level, but this is still very raw information that needs to be characterized</em>
+            <em>From segmented time-series to land use intensity</em>
 
+            <p>We classified the breakpoints</p>
             <ul>
-                <li>Number of burn events correspond to number of slash and burn cycles</li>
-                <li>Visual interpretation of (300?) breakpoints</li>
-                <li>Training of random forest classifier</li>
-                <ul>
-                    <p>Regressors are:</p>
-                    <li>Characteristics of surrounding segments</li>
-                </ul>
-                <li>Classification of breakpoints</li>
-                <li>Number of burning breakpoints == number of cultivation cycles</li>
+                <li>Visual interpretation of ~300 breakpoints</li>
+                <li>Training of random forest classifier based on characteristics of surrounding segments</li>
+                <li>Number of burning events equal to number of cultivation cycles</li>
             </ul>
 
         </section>
-        <section>
-            <h2>Validation</h2>
-            <p>Validation using an independent dataset</p>
-        </section>
+
         <section data-background="img/openSource.png" data-background-size="40%">
             <h2>And everything is free and open source</h2>
         </section>
@@ -241,6 +238,16 @@
         <section>
             <h2>Number of cultivation cycles</h2>
             <img src="img/resultMap.png">
+        </section>
+
+        <section>
+            <h2>Validation</h2>
+            <ul style="width: 40%; font-size: 80%">
+                <img src="img/fieldWork.jpg">
+                <li>Validation agains independent dataset</li>
+                <li>Number of past cultivation cycles retrieved from farmer's interviews</li>
+            </ul>
+            <img src="img/validation.png" width="40%">
         </section>
     </section>
 
