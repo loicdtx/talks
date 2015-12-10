@@ -209,7 +209,7 @@
             <p><em>We divided time-series in segments separated by breakpoints</em></p>
             <img src="img/annotatedProfile.png" width="70%">
             <ul>
-                <li>Segements correspond to stable land use regimes</li>
+                <li>Segments correspond to stable land use regimes</li>
                 <li>Breakpoints correspond to shifts in land use regime</li>
                 <ul>
                     <li>Stable forest to agriculture (Burning)</li>
@@ -223,7 +223,7 @@
             <h2>Profiles characterization by classification of breakpoints</h2>
             <em>From segmented time-series to land use intensity</em>
 
-            <p>We classified the breakpoints</p>
+            <p>We classified the breakpoints <img src="img/rf.png" style="width: 10%; background: beige; vertical-align:middle"></p>
             <ul>
                 <li>Visual interpretation of ~300 breakpoints</li>
                 <li>Training of random forest classifier based on characteristics of surrounding segments</li>
@@ -251,7 +251,7 @@
             <h2>Validation</h2>
             <ul style="width: 40%; font-size: 80%">
                 <img src="img/fieldWork.jpg">
-                <li>Validation agains independent dataset</li>
+                <li>Validation against independent dataset</li>
                 <li>Number of past cultivation cycles retrieved from farmer's interviews</li>
             </ul>
             <img src="img/validation.png" width="40%">
@@ -260,8 +260,9 @@
         <section>
             <h2>Main sources of errors</h2>
             <ul>
-                <li>Missed breakspoints due to fast dynamics</li>
+                <li>Missed breakpoints due to fast dynamics</li>
                 <li>Missed breakpoints due to low data density</li>
+                <li>Unclear temporal patterns due to sub-object mixture of several temporal signatures</li>
 
             </ul>
         </section>
@@ -276,6 +277,7 @@
                 <ul>
                     <li>Future works should attempt to fully characterize profiles</li>
                 </ul>
+            <li>We can do a lot with free and open source software</li>
             <li>Collaboration is fun</li>
         </ul>
     </section>
