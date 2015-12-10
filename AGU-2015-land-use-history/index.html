@@ -141,9 +141,16 @@
     <section>
         <section>
             <h2>Landsat data</h2>
-            <p>We used all of them</p>
-            <p>We used NDMI time-series</p>
-            <img src="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" width="50%">
+            <img src="img/layerStack.png" width="50%" style="float: left">
+            <ul style="width: 45%; float: right"> 
+                <br><br>
+                <li>All images available</li>
+                <li>NDMI time-series</li>
+                <ul>
+                    <li>$NDMI=\frac{NIR - SWIR}{NIR + SWIR}$</li>
+                </ul>
+                <li>Clouds and shadows masked with Landsat</li>
+            </ul>
             <!-- TODO: add layer stack + time-series profile -->
         </section>
         <section data-transition="none" data-transition-speed="fast">
@@ -249,6 +256,28 @@
             </ul>
             <img src="img/validation.png" width="40%">
         </section>
+
+        <section>
+            <h2>Main sources of errors</h2>
+            <ul>
+                <li>Missed breakspoints due to fast dynamics</li>
+                <li>Missed breakpoints due to low data density</li>
+
+            </ul>
+        </section>
+    </section>
+
+    <section>
+        <h2>Conclusions</h2>
+        <ul>
+            <li>We can produce ecologically relevant variables using Landsat time-series</li>
+            <li>It is challenging to capture fast dynamics</li>
+            <li>There's a lot more to mine out of segmented time-series</li>
+                <ul>
+                    <li>Future works should attempt to fully characterize profiles</li>
+                </ul>
+            <li>Collaboration is fun</li>
+        </ul>
     </section>
 
    
