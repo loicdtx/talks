@@ -91,6 +91,13 @@
         <div class="ref">
             <p>Dutrieux, L.P., Jakovac, C.C., Latifah, S.H., & Kooistra, L. (2015). Reconstructing land use history from Landsat time-series. <em>Case study of a swidden agriculture system in Brazil</em>. International Journal of Applied Earth Observation and Geoinformation.</p>
         </div>
+        <aside class="notes">
+            <ul>
+                <li>Wageningen University, University of life science, in the Netherlands</li>
+                <li>Remote sensing department</li>
+                <li>Finishing my PhD</li>
+            </ul>
+        </aside>
     </section>
 
     <section>
@@ -109,6 +116,14 @@
             </blockquote>
             <div class="profilePic" style="background-image:url(img/loic2.jpg)"></div>
 
+            <aside class="notes">
+                <ul>
+                    <li>Catarina PhD in Forest Ecology department</li>
+                    <li>Has been working on agriculture intensification in slash and burn systems in Brazil</li>
+                    <li>Wanted to upscale some very interesting findings to the landscape</li>
+                </ul>
+            </aside>
+
         </section>
         <section>
             <h3>Study area and ecological relevance</h3>
@@ -123,18 +138,41 @@
             <div class="ref">
                 <p>Jakovac, Catarina C., et al. "Loss of secondary‐forest resilience by land‐use intensification in the Amazon." Journal of Ecology 103.1 (2015): 67-77.</p>
             </div>
+
+            <aside class="notes">
+                <ul>
+                    <li>This is where Catarina has been working and collecting data</li>
+                    <li>A set of small villages belonging to the tefe municipality</li>
+                    <li>Grow casava using slash and burn cultivation technique</li>
+                    <ul>
+                        <li>Go to an area</li>
+                        <li>Slash and burn the forest</li>
+                        <li>Grow cassava for 1 or 2 years</li>
+                        <li>Abandon the area to let the forest recover</li>
+                        <li>Return some years later</li>
+                    </ul>
+                    <ul>What Catarina found is that there's an intensification of these systems, with shorter cycles</ul>
+                    <ul>And it negatively affects the capacity of these forest to recover (biomass, species richness), and also affects cassava yields and labour input requirements (weeding)</ul>
+                    <ul>Describe the pictures</ul>
+                    <li>Amazon river and rio tefe on the map</li>
+                </ul>
+            </aside>
         </section>
     </section>
 
     <section>
         <h2>Method</h2>
         <ul>
-            <li>Landsat data</li>
+            <li>Landsat time-series data</li>
             <li>Spatio-temporal segmentation</li>
             <li>Breakpoints detection</li>
             <li>Breakpoints classification</li>
-            <li>Validation</li>
         </ul>
+        <aside class="notes">
+            <ul>
+                <li>Main steps of the approach</li>
+            </ul>
+        </aside>
     </section>
 
 
@@ -144,14 +182,23 @@
             <img src="img/layerStack.png" width="50%" style="float: left">
             <ul style="width: 45%; float: right"> 
                 <br><br>
-                <li>All images available</li>
-                <li>NDMI time-series</li>
+                <li>All images available (350)</li>
+                <li>NDMI time-series (1984-2015)</li>
                 <ul>
                     <li>$NDMI=\frac{NIR - SWIR}{NIR + SWIR}$</li>
                 </ul>
-                <li>Clouds and shadows masked with Landsat</li>
+                <li>Clouds and shadows masked with Fmask algorithm</li>
             </ul>
-            <!-- TODO: add layer stack + time-series profile -->
+            <aside class="notes">
+                <ul>
+                    <li>We worked with Landsat time-series</li>
+                    <ul>
+                        <li>350 scenes spanning the 1984-2015 period</li>
+                    </ul>
+                    <li>NDMI uses the SWIR band and does not saturate as much as NDVI as soon as the canopy closes</li>
+                    <li>Reliable cloud and shadows masking allow us to use all the data available</li>
+                </ul>
+            </aside>
         </section>
         <section data-transition="none" data-transition-speed="fast">
             <h2>We worked at field level</h2>
@@ -160,6 +207,12 @@
             <ul style="width:45%">
                 <li class="fragment">But there is no cadastre !</li>
             </ul>
+            <aside class="notes">
+                <ul>
+                    <li>Fields are a better representation of the landscape than pixels</li>
+                    <li>We have ground truth information at field level</li>
+                </ul>
+            </aside>
         </section>
         <section data-transition="none" data-transition-speed="fast">
             <h2>We worked at field level</h2>
@@ -169,6 +222,11 @@
                 <li>But there is no cadastre !</li>
                 <li>And fields keep moving !</li>
             </ul>
+            <aside class="notes">
+                <ul>
+                    <li>Farmers do not always open the exact same areas (shifting fields)</li>
+                </ul>
+            </aside>
         </section>
         <section data-transition="none" data-transition-speed="fast">
             <h2>We worked at field level</h2>
@@ -183,9 +241,16 @@
                 <li>Delineates area of homogeneous temporal behavior</li>
                 <li>Implemented in Orfeo-Toolbox (OTB)</li>
             </ul>
+            <aside class="notes">
+                <ul>
+                    <li>Mean shift segmentation algorithm</li>
+                    <li>That way we were able to delineate our objects of interest</li>
+                    <li>Time-series were extracted and aggregated over the area of these objects</li>
+                </ul>
+            </aside>
         </section>
         <section>
-            <h3>Breakpoints detection</h3>
+            <h3>Breakpoints detection (1)</h3>
             <p><em>We divided time-series in segments separated by breakpoints</em></p>
 
             <img src="img/bp.gif" width="80%">
@@ -202,10 +267,22 @@
                 <p>Verbesselt, J., Hyndman, R., Newnham, G., & Culvenor, D. (2010). Detecting trend and seasonal changes in satellite image time series. Remote sensing of Environment, 114(1), 106-115.</p>
 
             </div>
+            <aside class="notes">
+                <ul>
+                    <li>A vegetation time-series can be modelled as the sum of an intercept, a trend, a seasonal component and a reminder</li>
+                    <li>But that is only true if the time-series follow one stable regime</li>
+                    <li>The breakpoints algorithm searches for abrupt changes in any of the regression coefficients</li>
+                    <ul>
+                        <li>Change in phenological amplitude, trend, etc</li>
+                    </ul>
+                    <li>Method derived from the econometrics literature</li>
+                    <li></li>
+                </ul>
+            </aside>
         </section>
 
         <section>
-            <h3>Breakpoints detection</h3>
+            <h3>Breakpoints detection (2)</h3>
             <p><em>We divided time-series in segments separated by breakpoints</em></p>
             <img src="img/annotatedProfile.png" width="70%">
             <ul>
@@ -230,10 +307,23 @@
                 <li>Number of burning events equal to number of cultivation cycles</li>
             </ul>
 
+            <aside class="notes">
+                <ul>
+                    <li>So far we have segmented time-series, which in itself is not very valuable information</li>
+                    <li>We need to make sense/interpret these breakpoints and segments in order to extract from them the variable we're interested in (Land use intensity)</li>
+                    <li>It's quite easy from a time-series profile to manually label the processes associated with the breakpoints</li>
+                    <li>We interpreted around 300 breakpoints using a custom made interactive interface to facilitate the process</li>
+                    <li>Used that to classify the breakpoints into "burning", "stabilization" and "other"</li>
+                </ul>
+            </aside>
+
         </section>
 
         <section data-background="img/openSource.png" data-background-size="40%">
             <h2>And everything is free and open source</h2>
+            <aside class="notes">
+                <p>Yeah!!!</p>
+            </aside>
         </section>
     </section>
 
@@ -245,6 +335,11 @@
         <section>
             <h2>Number of cultivation cycles</h2>
             <img src="img/resultMap.png">
+            <aside class="notes">
+                <ul>
+                    <li>Represents the number of cultivation cycles predicted by the method</li>
+                </ul>
+            </aside>
         </section>
 
         <section>
@@ -255,6 +350,11 @@
                 <li>Number of past cultivation cycles retrieved from farmer's interviews</li>
             </ul>
             <img src="img/validation.png" width="40%">
+            <aside class="notes">
+                <ul>
+                    <li>Obviously we shouldn't take that for granted, so we ran some validation against an independent dataset</li>
+                </ul>
+            </aside>
         </section>
 
         <section>
