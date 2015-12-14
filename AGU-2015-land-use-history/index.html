@@ -338,6 +338,8 @@
             <aside class="notes">
                 <ul>
                     <li>Represents the number of cultivation cycles predicted by the method</li>
+                    <li>Coherent patterns, more intense use closer to villages</li>
+                    <li>Fields on the periphery have only been used once or twice in the past 30 years</li>
                 </ul>
             </aside>
         </section>
@@ -353,6 +355,9 @@
             <aside class="notes">
                 <ul>
                     <li>Obviously we shouldn't take that for granted, so we ran some validation against an independent dataset</li>
+                    <li>Farmers were asked about the number of times they had cultivated the land</li>
+                    <li>We confronted this information against the prediction from our method</li>
+                    <li>Overall there's a good agreement, but also some deviations</li>
                 </ul>
             </aside>
         </section>
@@ -363,8 +368,16 @@
                 <li>Missed breakpoints due to fast dynamics</li>
                 <li>Missed breakpoints due to low data density</li>
                 <li>Unclear temporal patterns due to sub-object mixture of several temporal signatures</li>
-
             </ul>
+
+            <aside class="notes">
+                <ul>
+                    <li>We looked into single profiles to try to identify the sources of these deviations</li>
+                    <li>The method has many components, so the errors can have multiple origins</li>
+                    <li>2 first: breakpoints detection (minimum segment size, speed of dynamics and data density)</li>
+                    <li>third: classification and spatio-temporal segmentation</li>
+                </ul>
+            </aside>
         </section>
     </section>
 
@@ -380,6 +393,10 @@
             <li>We can do a lot with free and open source software</li>
             <li>Collaboration is fun</li>
         </ul>
+
+        <aside class="notes">
+
+        </aside>
     </section>
 
    
