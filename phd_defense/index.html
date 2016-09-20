@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>PhD defense, 13 Sep 2016, Wageningen</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/reveal.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/theme/black.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/css/zenburn.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="../lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Custom CSS -->
+        <style type="text/css">
+            #firstSlide p {color: white; width: 100%; }
+            #firstSlide h3 {color: white; width: 100%; }
+            #firstSlide h4 {color: white; width: 100%; }
+            /*image background filter*/
+            /*.backgrounds {
+                -webkit-filter: contrast(70%);
+                -webkit-filter: brightness(60%);
+            }
+*/
+            .profilePic {
+                display: inline-block;
+                margin-left: 5px;
+                width: 100px;
+                height: 100px;
+                border-radius: 100%;
+                border: 2px solid black;
+                background-size:cover;
+            }
+            .reveal section img {
+                border: none;
+                background: none;
+            }
+
+            .reveal .ref {
+                float: bottom;
+                width: 80%;
+                text-align: left;
+                font-size:40%;
+
+            }
+
+            .reveal .ref p {
+                margin: 5px;
+            }
+
+            /*Remove image shadows and borders*/
+            .reveal section img {
+                background:none;
+                border:none;
+                box-shadow:none
+            }
+
+            .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+                text-transform: none;
+            }
+
+            </style>
+    </head>
+
+    <body>
+
+    <div class="reveal">
+    <div class="slides">
+
+
+    <section data-background-image="img/cover_full.jpg" data-background-size="100%" data-background-filter="contrast(85%) brightness(70%)" style="text-align: left;">
+    <div style="width:80%; float:left">
+        
+        <h3>Multidimensional remote sensing based mapping of tropical forests and their dynamics</h3>
+        <br>
+        <h4>Loïc Dutrieux</h4>
+    </div>
+    <br>
+    <img src="img/tree.png" width="20%">
+    </section>
+
+    <section data-background-image="img/caracol_small.jpg">
+        <img class="fragment" src="img/Mayamap.png" width="40%" style="float:right">
+    </section>
+
+    <section>
+        <h3>Mesoamerica - 950 A.D.</h3>
+        <figure>
+            <img src="img/mesoamerica_950.png" width="90%">
+            <figcaption style="font-size:50%">Cook et al. (2010). Pre-Columbian deforestation as an amplifier of drought in Mesoamerica. <i>Geophysical Research Letters</i></figcaption>
+        </figure>
+    </section>
+
+    <section data-background-image="img/deforestation.png">
+        <aside class="notes">
+            <ul>
+                <li>Why is that a problem?</li>
+                <li>What makes forests so important?</li>
+                <li>I'm going to give you at least two reasons</li>
+            </ul>
+        </aside>
+    </section>
+
+    <section data-background-image="img/Carbon_cycle.jpg" data-background-size="70%">
+        <!-- <img class="fragment" src="img/co2_data_mlo.png"> -->
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <p style="font-size: 60%; text-align: left; color: black">Credit: Office of Biological and Environmental Research of the U.S. Department of Energy Office of Science.</p>
+        <aside class="notes">
+            <ul>
+                <li>Forests are part of the carbon cycle</li>
+                <li>Of course the transportation and industry sector are by far the largest emmiters of GHG, but land use and deforestation also contributes to it, as it accounts for about 10% of the global GHG emissions</li>
+                <li>So they are important in a climate change perspective</li>
+            </ul>
+        </aside>
+    </section>
+
+    <section data-background-image="img/biodiversity.png">
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <p class="ref" style="color: black; font-size: 70%; text-align: left">Myers et al. (2010) Biodiversity hotspots for conservation priorities. <i>Nature</i></p>
+        <aside class="notes">
+            <ul>
+                <li>A second reason why forests are so important is because they concentrate a large part of terrestrial biodiversity</li>
+                <li>The red patches on this map represent the biodiversity hotspots of the world</li>
+                <li>You can see that many of these hotspots are located in the forested area of the intertropical zone</li>
+            </ul>
+        </aside>
+    </section>
+
+    <section>
+        <h3>How can we keep an eye on these important forest resources?</h3>
+        <img src="img/forest_icon.png" width="30%">
+        <img class="fragment" src="img/guy.png" width="20%">
+        <img class="fragment" src="img/planet_earth_icon.png" width="20%">
+        <img class="fragment" src="img/satellite_side.png" width="20%">
+        <aside class="notes">
+            <ul>
+                <li>So forest are very important, and we should keep an eye on them, but how do we do that?</li>
+                <li>You could send people walking the forest to measure trees, but you'll quickly realize that the Amazon is very large and that you cannot cover everything</li>
+                <li>I decided to approach it using remote sensing satellites</li>
+                <li>And I will explain to you why it has a great potential</li>
+            </ul>
+        </aside>
+    </section>
+
+    <section data-background-image="img/sentinel_2.jpg">
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <p class="ref" style="color: black; font-size: 70%; text-align: left">Credit: Airbus Defence and Space</p>
+
+        <aside class="notes">
+            <ul>
+                <li>Artist view of Sentinel 2. A satellites that the ESA launched recently</li>
+                <li>An interesting thing about satellites is that they are always represented with artist views. Simply because once they are in space, we cannot see them anymore, so we cannot take pictures of them.</li>
+                <li></li>
+            </ul>
+        </aside>
+    </section>    
+
+    <section data-background-image="img/sentinel_2.jpg" data-background-filter="contrast(70%) brightness(60%)">
+        <img src="img/layer_stack_icon_2.png" width="19%">
+        <img src="img/layer_stack_icon_2.png" width="19%" class="fragment">
+        <img src="img/layer_stack_icon_2.png" width="19%" class="fragment">
+        <img src="img/layer_stack_icon_2.png" width="19%" class="fragment">
+        <img src="img/layer_stack_icon_2.png" width="19%" class="fragment">
+        <img class="fragment" style="float:bottom" src="img/satellite.png" width="19%">
+        <img class="fragment" style="float:bottom" src="img/satellite_2.png" width="19%">
+        <img class="fragment" style="float:bottom" src="img/satellite_3.png" width="19%">
+        <img class="fragment" style="float:bottom" src="img/satellite_side.png" width="19%">
+        <img class="fragment" style="float:bottom" src="img/satellite_4.png" width="19%">
+        <img class="fragment" style="float:bottom" src="img/layer_stack_icon.png" width="19%">
+        <img class="fragment" style="float:bottom" src="img/layer_stack_icon.png" width="19%">
+        <img class="fragment" style="float:bottom" src="img/layer_stack_icon.png" width="19%">
+        <img class="fragment" style="float:bottom" src="img/layer_stack_icon.png" width="19%">
+        <img class="fragment" style="float:bottom" src="img/layer_stack_icon.png" width="19%">
+
+        <aside class="notes">
+            <ul>
+                <li>Artist view of Sentinel 2. A satellites that the ESA launched recently</li>
+                <li>An interesting thing about satellites is that they are always represented with artist views. Simply because once they are in space, we cannot see them anymore, so we cannot take pictures of them.</li>
+                <li></li>
+            </ul>
+        </aside>
+    </section>
+<!-- 
+    <section>
+        <img src="img/reflectance.png">
+    </section> -->
+    <section data-background-image="img/natural_color.jpeg" data-background-size="40%">
+        <aside class="notes">
+            <ul>
+                <li>A satellite image is much more than it seems like</li>
+            </ul>
+        </aside>
+    </section>
+
+    <section data-background-image="img/natural_color.jpeg" data-background-size="40%" data-background-filter="contrast(70%) brightness(60%)">
+        <img src="img/blue.jpeg" width="22%">
+        <img src="img/green.jpeg" width="22%" class="fragment">
+        <img src="img/psycho_1.jpeg" width="22%" class="fragment">
+        <img src="img/psycho_2.jpeg" width="22%" class="fragment">
+        <img src="img/blue.jpeg" width="22%" class="fragment">
+        <img src="img/green.jpeg" width="22%" class="fragment">
+        <img src="img/psycho_1.jpeg" width="22%" class="fragment">
+        <img src="img/psycho_2.jpeg" width="22%" class="fragment">
+
+        <aside class="notes">
+            <ul>
+                <li>A satellite image is much more than it seems like</li>
+            </ul>
+        </aside>
+    </section>
+
+    <section>
+        <h1>There is a lot of data</h1>
+    </section>
+
+
+
+    <section>
+        <h2>Overall objectives</h2>
+        <ul>
+            <li><i>Take advantage of this large data diversity to map forest state and dynamics</i></li>
+            <li><i>Combine ground based ecological measurements with satellite data</i></li>
+            <img src="img/papers.png" width="40%" style="margin-top:0">
+            <img src="img/rotated_arrow.png" width="25%">
+            <img src="img/cover_front.jpg" width="30%" style="margin-top:0">
+        </ul>
+    </section>
+
+
+    <section>
+        <h3>Chapter 1: Mapping forest attributes</h3>
+        <img src="img/boliviaOverview.png" width="60%">
+    </section>
+
+    <section>
+        <h3>Chapter 1: Mapping forest attributes</h3>
+        <img src="img/scaling.png" width="78%">
+    </section>
+
+    <section>
+        <h3>Chapter 1: Mapping forest attributes</h3>
+        <table>
+            <tr>
+                <td align="center"><img src="img/mapDCA1.png"><p>Species diversity</p></td>
+                <td align="center"><img src="img/mapPalm.png"><p>Density of Palm tree</p></td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h3>Chapter 2: Deforestation mapping</h3>
+        <img src="img/study_area_bolivia.png" width="70%">
+    </section>
+
+    <section>
+        <h3>Chapter 2: Deforestation mapping</h3>
+        <img src="img/results.png" width = "60%">
+        <img src="img/deforestation.gif" width="39%">
+    </section>
+
+    <section>
+        <!-- Show area on a map, say that it is in Brazil -->
+        <!-- Slash and burn agriculture is a rotational system that local farmers are using to grow cassava, and it is very interesting because there is a strong connection between the intensity at which the land is cultivated and the capacity of the forest to regenerate between the rotation -->
+        <!-- For this chapter, I had the chance to collaborate with catarina, another PhD student, or former PhD student who went there many times. And these are some pictures she took -->
+        <h3>Chapter 3: Slash and burn agriculture</h3>
+        <img src="img/studyAreaSmall.png" width="45%" style="float: left">
+        <p style="font-size: 80%"><i>"Land use intensity in slash and burn agriculture systems strongly influences the capacity of the forests to regenerate"</i></p>
+        <img src="img/tefe.gif" width="50%">
+    </section>
+
+    <section>
+        <h3>Chapter 3: Slash and burn agriculture</h3>
+        <img src="img/sb.gif" width="60%" style="float:left">
+        <br><br><br>
+        <p class="fragment">We "reconstructed" the land use history of the past 30 years</p>
+    </section>
+
+    <section>
+        <h3>Chapter 3: Slash and burn agriculture</h3>
+        <img src="img/resultMap.png" width="90%"">
+    </section>
+
+    <section>
+        <h3>Chapter 4: How fast do forests recover?</h3>
+        <figure style="float: left; width: 70%"">
+            <img src="img/biomass_resilience.jpg">
+            <figcaption style="font-size:50%">Poorter et al. (2016) Biomass resilience of Neotropical secondary forests. <i>Nature</i></figcaption>
+        </figure>
+        <br><br><br>
+        <p class="fragment">Can remote sensing help?</p>
+
+        <aside class="notes">
+            <ul>
+                <li>Very interesting because it gives an idea of which forests are the most fragile</li>
+            </ul>
+        </aside>
+    </section>
+
+    <section>
+        <h3>Chapter 4: How fast do forests recover?</h3>
+        <br>
+        <img src="img/map_recovery_time_dist_2.png" width="50%" style="float:left">
+        <img src="img/map_spatial_variability_2.png" width="50%">
+    </section>
+
+    <section>
+        <h3>Conclusion</h3>
+        <p>Remote sensing has a big potential for monitoring forest resources and ecological processes</p>
+        <img src="img/spatio-temporal-scales_intro.png" width="75%">
+    </section>
+
+    <section>
+        <h3>Conclusion</h3>
+        <p>Taking advantage of all the remote sensing dimensions is required to better capture ecological processes</p>
+        <img src="img/venn_diagram.png" width="50%">
+    </section>
+
+    <section data-background-image="img/maya_end.jpg">
+        <!-- If you look back at these Mayan cities 1000 years later forest, regrew quite well, in fact most people would say this is primary forest when it clearly is not. -->
+        <!-- And that's a good hope because it means that forests are resilient -->
+        <!-- But nature had to push back the people before it could recover -->
+    </section>
+
+    <section>
+        <h2>Thank you!</h2>
+    </section>
+
+    <section data-background-image="img/cover_full.jpg" data-background-size="100%" data-background-filter="contrast(85%) brightness(70%)" style="text-align: left;">
+    <div style="width:80%; float:left">
+        
+        <h3>Multidimensional remote sensing based mapping of tropical forests and their dynamics</h3>
+        <br>
+        <h4>Loïc Dutrieux</h4>
+    </div>
+    <br>
+    <img src="img/tree.png" width="20%">
+    </section>
+
+    </div>
+    </div>
+
+    <!-- Scripts below -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.js"></script>
+
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: false,
+                progress: false,
+                history: true,
+                center: true,
+                theme: Reveal.getQueryHash().theme || 'night', // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/math/math.js', async: true }
+                ]
+            });
+
+            // Code à ajouter pour gérer les backgrounds filters pour chaque slide
+            /* -------------------------------------------------------------------- */
+            var processBackgroundFilters = function(event) {
+                // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+                filter = event.currentSlide.dataset['backgroundFilter']
+                if(filter != undefined) {
+                    bk = document.getElementsByClassName('backgrounds')
+                    bk[0].style.filter = filter;
+                    bk[0].style.WebkitFilter = filter;
+                }
+                else {
+                    bk[0].style.filter = '';
+                    bk[0].style.WebkitFilter = '';
+                }
+            }
+
+            Reveal.addEventListener( 'ready', function( event ) {
+                processBackgroundFilters(event)
+            } );
+            Reveal.addEventListener( 'slidechanged', function( event ) {
+                processBackgroundFilters(event)
+            } );
+            /* -------------------------------------------------------------------- */
+        </script>
+
+    </body>
+</html>
