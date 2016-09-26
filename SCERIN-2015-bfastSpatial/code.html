@@ -66,9 +66,9 @@ img {
 <div id="install-the-bfastspatial-package" class="section level2">
 <h2>install the bfastSpatial package</h2>
 <pre class="r"><code>if(!require(bfastSpatial)) {
-  devtools::install_github('dutri001/bfastSpatial')
+  devtools::install_github('loicdtx/bfastSpatial')
 }
-devtools::install_github('dutri001/bfastSpatial')
+devtools::install_github('loicdtx/bfastSpatial')
 library(bfastSpatial)</code></pre>
 </div>
 <div id="set-paths" class="section level2">
@@ -90,7 +90,7 @@ outDir &lt;- file.path(path, 'out')</code></pre>
 <div id="data-download" class="section level2">
 <h2>Data download</h2>
 <pre class="r"><code># Download the archive with the data (~100MB)
-download.file('http://www.geo-informatie.nl/dutri001/hungaryData.tar.gz',
+download.file('http://www.geo-informatie.nl/loicdtx/hungaryData.tar.gz',
               destfile = file.path(path, 'hungaryData.tar.gz'))
 # Alternative download: https://googledrive.com/host/0B6NK5CdpGEa7ajFuQ1dBZHUwMW8
 
@@ -151,12 +151,12 @@ zooTs &lt;- zooExtract(x = ndviStack, sample = sp, file = file.path(stepDir, 'zo
 <div id="run-bfmapp" class="section level3">
 <h3>Run <code>bfmApp</code></h3>
 <pre class="r"><code>library(shiny)
-runGitHub('dutri001/bfmApp')</code></pre>
+runGitHub('loicdtx/bfmApp')</code></pre>
 </div>
 </div>
 <div id="with-breakpoints-app" class="section level2">
 <h2>With breakpoints App</h2>
-<pre class="r"><code>runGitHub('dutri001/bfastApp')</code></pre>
+<pre class="r"><code>runGitHub('loicdtx/bfastApp')</code></pre>
 </div>
 </div>
 

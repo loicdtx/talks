@@ -101,7 +101,7 @@ install.packages('devtools')
             <pre>
                 <code data-trim class="r">
 # install bfastSpatial from github
-devtools::install_github('dutri001/bfastSpatial')
+devtools::install_github('loicdtx/bfastSpatial')
                 </code>
             </pre>
             
@@ -117,7 +117,7 @@ path <- '~/sandbox/changeHungary'
 inDir <- file.path(path, 'in')
 
 # Download the archive with the data (~100MB)
-download.file('http://www.geo-informatie.nl/dutri001/hungaryData.tar.gz',
+download.file('http://www.geo-informatie.nl/loicdtx/hungaryData.tar.gz',
               destfile = file.path(path, 'hungaryData.tar.gz'))
 # Alternative download: https://googledrive.com/host/0B6NK5CdpGEa7ajFuQ1dBZHUwMW8
 
@@ -252,7 +252,7 @@ dimensions  : 176, 177, 31152, 397  (nrow, ncol, ncell, nlayers)
 resolution  : 30, 30  (x, y)
 extent      : 569805.5, 575115.5, 5275605, 5280885  (xmin, xmax, ymin, ymax)
 coord. ref. : +proj=utm +zone=34 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
-data source : /home/dutri001/Desktop/HungaryData/step/ndvi_stack.grd 
+data source : /home/loicdtx/Desktop/HungaryData/step/ndvi_stack.grd 
 names       : LE71850272000123, LE71850272000155, LE71850272000235, ... 
 time        : 2000-02-03, 2015-06-12 (min, max)
                 </code>
@@ -289,7 +289,7 @@ dimensions  : 176, 177, 31152, 3  (nrow, ncol, ncell, nlayers)
 resolution  : 30, 30  (x, y)
 extent      : 569805.5, 575115.5, 5275605, 5280885  (xmin, xmax, ymin, ymax)
 coord. ref. : +proj=utm +zone=34 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
-data source : /home/dutri001/Desktop/HungaryData/out/bfm_2010.grd 
+data source : /home/loicdtx/Desktop/HungaryData/out/bfm_2010.grd 
 names       :   layer.1,   layer.2,   layer.3 
 min values  :  2010.427, -4599.156,        NA 
 max values  :  2012.879,  6252.375,        NA 
@@ -315,8 +315,8 @@ plot(bfm[[1]], add=TRUE)
             <h2>Utilities: Investigate individual pixel time-series</h2>
             <ul>
                 <li>bfmPixel() <i>(run bfastmonitor on individual pixels)</i></li>
-                <li><a href="https://github.com/dutri001/bfmApp">bfmApp</a> <i>(investigate bfastmonitor parameters interactively)</i></li>
-                <li><a href="https://github.com/dutri001/bfastApp">breakpoints app</a> <i>(Interactive detection of multiple breakpoints)</i></li>
+                <li><a href="https://github.com/loicdtx/bfmApp">bfmApp</a> <i>(investigate bfastmonitor parameters interactively)</i></li>
+                <li><a href="https://github.com/loicdtx/bfastApp">breakpoints app</a> <i>(Interactive detection of multiple breakpoints)</i></li>
             </ul>
         </section>
 
@@ -366,7 +366,7 @@ install.packages('shiny', 'zoo', 'bfast', 'strucchange', 'ggplot2',
         <pre>
             <code data-trim class="r">
 library(shiny)
-runGitHub('dutri001/bfmApp')
+runGitHub('loicdtx/bfmApp')
             </code>
         </pre>
 
@@ -379,7 +379,7 @@ runGitHub('dutri001/bfmApp')
         <h2>breakpoints app</h2>
             <pre>
                 <code data-trim class="r">
-runGitHub('dutri001/bfastApp')
+runGitHub('loicdtx/bfastApp')
                 </code>
             </pre>
 
@@ -406,7 +406,7 @@ runGitHub('dutri001/bfastApp')
     <section>
         <h2>Where to find help</h2>
         <ul>
-            <li><a href="https://github.com/dutri001/bfastSpatial">Github project page</a></li>
+            <li><a href="https://github.com/loicdtx/bfastSpatial">Github project page</a></li>
             <li><a href="http://www.loicdutrieux.com/bfastSpatial/">Main tutorial</a></li>
             <li>Wageningen <a href="http://www.wageningenur.nl/en/Expertise-Services/Chair-groups/Environmental-Sciences/Laboratory-of-Geoinformation-Science-and-Remote-Sensing/Research/Integrated-land-monitoring/Change_detection_and_monitoring.htm">change monitor web page</a></li>
             <li>Mail us (Ben and I) <a href="mailto:loic.dutrieux@gmail.com"><i class="fa fa-envelope fa-2x"></i></a> <a href="mailto:benjamin.devries@wur.nl"><i class="fa fa-envelope fa-2x"></i></a></li>
@@ -425,7 +425,7 @@ runGitHub('dutri001/bfastApp')
         </p>
         <p>
         <a href="mailto:loic.dutrieux@gmail.com"><i class="fa fa-envelope fa-2x"></i></a>
-        <a href="http://github.com/dutri001"><i class="fa fa-github fa-2x"></i></a>
+        <a href="http://github.com/loicdtx"><i class="fa fa-github fa-2x"></i></a>
         <a href="http://nl.linkedin.com/in/loicdutrieux"><i class="fa fa-linkedin fa-2x"></i></a>
         </p>
     </section>
